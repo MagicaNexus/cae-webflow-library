@@ -1,0 +1,21 @@
+/*width*/
+.scrollbar::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+/*track*/
+.scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0);
+}
+
+/*thumb*/
+.scrollbar::-webkit-scrollbar-thumb {
+  background: rgb(0, 0, 0, 0.08);
+  border-radius: 8px;
+  border: 5px solid transparent;
+}
+
+.accordion-body {
+  display: none;
+}
