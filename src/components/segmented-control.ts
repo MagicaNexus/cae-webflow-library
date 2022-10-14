@@ -1,24 +1,29 @@
+import { attrElement } from 'src';
+
 const segmentedControl = (function () {
   // Segmented Control Component settings
   const settings = {
-    attribute: '[cobalt-element="segmented-control"]',
-    classes: {
+    attribute: {
+      segmented: `[${attrElement}="segmented-control"]`,
+    },
+    class: {
       disabled: 'disabled',
       none: 'none',
       active: 'active',
     },
   };
 
-  const prefix = settings.classes;
+  const classes = settings.class;
+  const attributes = settings.attribute;
 
   return {
     init: function () {
-      document.querySelectorAll(settings.attribute).forEach((trigger) => {
+      document.querySelectorAll(attributes.segmented).forEach((trigger) => {
         const triggerElement: HTMLElement = trigger as HTMLElement;
 
         //Disable the animation when component has a "disabled" class
-        if (triggerElement.classList.contains(prefix.disabled)) {
-          triggerElement.style.pointerEvents = prefix.none;
+        if (triggerElement.classList.contains(classes.disabled)) {
+          triggerElement.style.pointerEvents = classes.none;
           return;
         }
         //On click component
@@ -28,11 +33,11 @@ const segmentedControl = (function () {
           //Get all options in the segmented option component
           const parent: ParentNode | null = triggerElement.parentNode;
           if (parent == null) return;
-          const children: NodeListOf<Element> = parent.querySelectorAll(settings.attribute);
+          const children: NodeListOf<Element> = parent.querySelectorAll(attributes.segmented);
 
           //Desactivate all the options then activate the option triggered in the parent node
-          children.forEach((target) => target.classList.remove(prefix.active));
-          triggerElement.closest(settings.attribute)?.classList.add(prefix.active);
+          children.forEach((target) => target.classList.remove(classes.active));
+          triggerElement.closest(attributes.segmented)?.classList.add(classes.active);
         }
       });
     },
