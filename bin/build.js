@@ -9,6 +9,7 @@ const entryPoints = [
   'src/index.ts',
   'src/components/accordion.ts',
   'src/components/segmented-control.ts',
+  'src/components/input-number.ts',
 ];
 
 /**
