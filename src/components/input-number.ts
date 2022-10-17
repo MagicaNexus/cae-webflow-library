@@ -38,40 +38,66 @@ const inputNumber = (function () {
           return;
         }
 
-        if (triggerElement.hasAttribute(attributes.min)) console.log('Min');
-
-        if (triggerElement.hasAttribute(attributes.max)) console.log('Max');
+        let plusButton: HTMLDivElement = document.createElement('div');
+        let minusButton: HTMLDivElement = document.createElement('div');
 
         component.childNodes.forEach((child) => {
-          const button: HTMLElement = child as HTMLElement;
+          const button: HTMLDivElement = child as HTMLDivElement;
+          if (button.getAttribute(attrElement) === 'input-number-minus') {
+            minusButton = button;
+          }
+
+          if (button.getAttribute(attrElement) === 'input-number-plus') {
+            plusButton = button;
+          }
+        });
+
+        component.childNodes.forEach((child) => {
+          const button: HTMLDivElement = child as HTMLDivElement;
           button.addEventListener('click', setInputNumberButton);
 
           function setInputNumberButton() {
             const inputValue = Number(triggerElement.value);
+            enableButton(minusButton);
+            enableButton(plusButton);
 
             if (button.getAttribute(attrElement) === 'input-number-minus') {
               triggerElement.value = (inputValue - 1).toString();
+              if (hasLimitValue(triggerElement, attributes.min)) disableButton(button);
+
+              /*
               if (!triggerElement.hasAttribute(attributes.min)) return;
+              const minValue = Number(triggerElement.getAttribute(attributes.min));
+              if (isNaN(minValue) || inputValue - 1 !== minValue) return;
+              disableButton(minusButton);*/
             }
 
             if (button.getAttribute(attrElement) === 'input-number-plus') {
               triggerElement.value = (inputValue + 1).toString();
+
               if (!triggerElement.hasAttribute(attributes.max)) return;
               const maxValue = Number(triggerElement.getAttribute(attributes.max));
               if (isNaN(maxValue) || inputValue + 1 !== maxValue) return;
+              disableButton(plusButton);
             }
           }
 
-          function disableButton(button: HTMLElement) {
+          function disableButton(button: HTMLDivElement) {
             button.classList.remove(classes.ghost);
             button.classList.add(classes.ghost_disabled);
             button.style.pointerEvents = classes.none;
           }
 
-          function enableButton(button: HTMLElement) {
+          function enableButton(button: HTMLDivElement) {
             button.classList.remove(classes.ghost_disabled);
             button.classList.add(classes.ghost);
             button.style.pointerEvents = classes.auto;
+          }
+
+          function hasLimitValue(triggerElement: HTMLInputElement, attribute: string) {
+            if (!triggerElement.hasAttribute(attribute)) return false;
+            const minValue = Number(triggerElement.getAttribute(attribute));
+            return !(isNaN(minValue) || Number(triggerElement.value) !== minValue);
           }
         });
       });
