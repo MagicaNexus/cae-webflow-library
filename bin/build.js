@@ -11,6 +11,7 @@ const entryPoints = [
   'src/components/segmented-control.ts',
   'src/components/input-number.ts',
   'src/components/input-text.ts',
+  'src/components/tooltip.ts',
 ];
 
 /**
