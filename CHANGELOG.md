@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.2
+
+### Patch Changes
+
+- 72aa37f: Fixing 'isProduction' bug in initialize
+
 ## 1.5.1
 
 ### Patch Changes
