@@ -3,7 +3,7 @@ import axios from 'axios';
 const stagingUrl = 'http://localhost:3000';
 const prodUrl = 'https://cdn.jsdelivr.net/npm/@cae-cobalt/cae-webflow-library@1/dist';
 
-export const initialize = (components: Array<string>) => {
+export function initialize(components: Array<string>) {
   axios
     .get(stagingUrl)
     .then((response) => {
@@ -14,7 +14,7 @@ export const initialize = (components: Array<string>) => {
       console.log(`CDN detected!`);
       getScript(components, prodUrl);
     });
-};
+}
 
 function getScript(components: Array<string>, baseUrl: string) {
   components.forEach((component) => {
@@ -31,5 +31,3 @@ function appendScript(url: string) {
   htmlEl.defer = true;
   document.body.append(htmlEl);
 }
-
-//initialize();

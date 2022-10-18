@@ -20,12 +20,13 @@ const entryPoints = [
  * @type {esbuild.BuildOptions}
  */
 const defaultSettings = {
-  bundle: true,
+  bundle: production,
   outdir: buildDirectory,
-  minify: production,
+  minify: false,
   sourcemap: !production,
   target: production ? 'es2017' : 'esnext',
   entryPoints,
+  keepNames: true,
 };
 
 // Files building
