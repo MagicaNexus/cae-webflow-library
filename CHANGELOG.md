@@ -1,5 +1,13 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.3
+
+### Patch Changes
+
+- c6b7599: Fix initializer http request
+- f852347: Fix initializer axios request
+- 7e5f4de: Fix initializer http request
+
 ## 1.5.2
 
 ### Patch Changes
