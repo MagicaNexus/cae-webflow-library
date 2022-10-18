@@ -7,7 +7,7 @@ export const initialize = (components: Array<string>) => {
   request.send();
   request.onload = () => {
     const isProduction = request.status === 200 || request.status === 301;
-    const baseUrl = !isProduction ? prodUrl : stagingUrl;
+    const baseUrl = isProduction ? prodUrl : stagingUrl;
     components.forEach((component) => {
       const url = new URL(`${baseUrl}/components/${component}.js`).toString();
       appendScript(url);
