@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.1
+
+### Patch Changes
+
+- 2805d24: Adding initilizer and constant class
+
 ## 1.5.0
 
 ### Minor Changes
