@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "@finsweet/ts-utils": "^0.33.2",
+    "@types/node": "^18.11.0",
     "tippy.js": "^6.3.7"
   }
 }

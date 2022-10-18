@@ -1,21 +1,14 @@
-import { attrElement } from 'src';
 import tippy from 'tippy.js';
 
-import './../style/style.css';
+import { settings } from '$global/settings';
+import '$styles/tooltip.css';
 
 const tooltip = (function () {
-  // Tooltip Settings
-  const settings = {
-    attribute: {
-      tooltip: `[${attrElement}="tooltip"]`,
-    },
-  };
-
-  const attributes = settings.attribute;
+  const attribute = settings.attributes.tooltip;
 
   return {
     init: function () {
-      tippy(attributes.tooltip, {
+      tippy(attribute, {
         animation: 'shift-toward-subtle',
         arrow: false,
         delay: [800, 0],
@@ -25,6 +18,5 @@ const tooltip = (function () {
   };
 })();
 
-document.addEventListener('DOMContentLoaded', () => {
-  tooltip.init();
-});
+// Initialize the component
+tooltip.init();

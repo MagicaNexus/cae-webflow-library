@@ -1,6 +1,6 @@
-import './style/style.css';
+//import '@finsweet/ts-utils';
 
-export const attrElement = 'co-element';
+console.log('Hello World');
 
-window.Webflow ||= [];
-window.Webflow.push(() => {});
+// window.Webflow ||= [];
+// window.Webflow.push(() => {});

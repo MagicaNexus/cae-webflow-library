@@ -1,26 +1,9 @@
-import { attrElement } from 'src';
+import { settings } from '$global/settings';
 
 const textInput = (function () {
-  // Accordion Settings
-  const settings = {
-    attribute: {
-      field: `[${attrElement}="text-input-field"]`,
-      counter: `[${attrElement}="text-input-counter-label"]`,
-      component: `[${attrElement}="text-input-field-component"]`,
-      passwordIcon: `[${attrElement}="text-input-field-password-icon"]`,
-      max: `maxlength`,
-      type: 'type',
-      password: 'password',
-      fieldType: 'field-type',
-    },
-    icon: {
-      eyeOpen: '',
-      eyeClose: '',
-    },
-  };
-
-  const attributes = settings.attribute;
-  const icons = settings.icon;
+  const { global } = settings.attributes;
+  const { icons } = settings;
+  const attributes = settings.attributes.input_text;
 
   return {
     init: function () {
@@ -31,13 +14,13 @@ const textInput = (function () {
         if (!component) return;
 
         // Show the number of characters in an input
-        if (textfield.getAttribute(attributes.fieldType) === 'counter') {
+        if (textfield.getAttribute(global.fieldType) === 'counter') {
           const counterLabel: HTMLTextAreaElement = component.querySelector(
-            attributes.counter
+            attributes.label
           ) as HTMLTextAreaElement;
 
           //Get the char limit from the attribute
-          const limit = Number(textfield.getAttribute(attributes.max));
+          const limit = Number(textfield.getAttribute('maxlength'));
 
           //Initialize the text of the limit
           counterLabel.textContent = '0/' + limit;
@@ -49,28 +32,25 @@ const textInput = (function () {
         }
 
         //Show the password show/hide behaviour
-        if (textfield.getAttribute(attributes.type) === attributes.password) {
-          const passwordIcon: HTMLTextAreaElement = component.querySelector(
-            attributes.passwordIcon
-          ) as HTMLTextAreaElement;
+        if (textfield.getAttribute('type') === 'password') {
+          const icon: HTMLTextAreaElement | null = component.querySelector(attributes.icon);
+
+          if (!icon) return;
 
           //Initialize the field state
           let passwordState = true;
 
           //On click password icon
-          passwordIcon.addEventListener('click', onClickPasswordIcon);
-
-          function onClickPasswordIcon() {
-            passwordIcon.textContent = passwordState ? icons.eyeOpen : icons.eyeClose;
-            textfield.setAttribute(attributes.type, passwordState ? 'text' : attributes.password);
+          icon.addEventListener('click', function () {
+            icon.textContent = passwordState ? icons.show_outline : icons.show_solid;
+            textfield.setAttribute('type', passwordState ? 'text' : 'password');
             passwordState = !passwordState;
-          }
+          });
         }
       });
     },
   };
 })();
 
-document.addEventListener('DOMContentLoaded', () => {
-  textInput.init();
-});
+// Initialize the component
+textInput.init();

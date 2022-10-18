@@ -4,7 +4,10 @@
     "rootDir": ".",
     "baseUrl": "./",
     "paths": {
-      "$utils/*": ["src/utils/*"]
+      "$utils/*": ["src/utils/*"],
+      "$styles/*": ["src/styles/*"],
+      "$components/*": ["src/components/*"],
+      "$global/*": ["src/global/*"]
     }
   }
 }

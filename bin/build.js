@@ -12,6 +12,7 @@ const entryPoints = [
   'src/components/input-number.ts',
   'src/components/input-text.ts',
   'src/components/tooltip.ts',
+  'src/utils/initialize.ts',
 ];
 
 /**

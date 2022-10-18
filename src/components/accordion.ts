@@ -1,24 +1,9 @@
-import { attrElement } from 'src';
+import { settings } from '$global/settings';
+import '$styles/accordion.css';
 
 const accordion = (function () {
-  // Accordion Settings
-  const settings = {
-    speed: 300, // Animation speed
-    attribute: {
-      toogle: `[${attrElement}="accordion-toogle"]`,
-      icon: `[${attrElement}="accordion-icon"]`,
-      item: `[${attrElement}="accordion-item"]`,
-      open: 'accordion-open',
-    },
-    class: {
-      active: 'active',
-      disabled: 'disabled',
-      none: 'none',
-    },
-  };
-
-  const classes = settings.class;
-  const attributes = settings.attribute;
+  const { classes } = settings;
+  const attributes = settings.attributes.accordion;
   const closestIcon = `> ${attributes.toogle} > ${attributes.icon}`;
 
   return {
@@ -41,20 +26,19 @@ const accordion = (function () {
         function toogleAccordion(this: any) {
           //Rotate the icon of the selected accordion
           $(this)
-            .closest(attributes.item)
+            .closest(attributes.component)
             .toggleClass(classes.active)
             .find(closestIcon)
             .closest(attributes.icon)
             .toggleClass(classes.active);
 
           //Toogle the body of the accordion
-          $(this).next().stop().slideToggle(settings.speed);
+          $(this).next().stop().slideToggle(300);
         }
       });
     },
   };
 })();
 
-document.addEventListener('DOMContentLoaded', () => {
-  accordion.init();
-});
+// Initialize the component
+accordion.init();

@@ -1,28 +1,9 @@
-import { attrElement } from 'src';
+import { settings } from '$global/settings';
 
 const inputNumber = (function () {
-  // Input Number Component settings
-  const settings = {
-    attribute: {
-      component: `[${attrElement}="input-number"]`,
-      input: `[${attrElement}="input-number-field"]`,
-      minus: `[${attrElement}="input-number-minus"]`,
-      plus: `[${attrElement}="input-number-plus"]`,
-      min: `co-input-number-min`,
-      max: `co-input-number-max`,
-    },
-    class: {
-      disabled: 'disabled',
-      none: 'none',
-      active: 'active',
-      auto: 'auto',
-      ghost: 'ghost',
-      ghost_disabled: 'ghost-disabled',
-    },
-  };
-
-  const classes = settings.class;
-  const attributes = settings.attribute;
+  const { classes } = settings;
+  const { global } = settings.attributes;
+  const attributes = settings.attributes.input_number;
 
   return {
     init: function () {
@@ -44,9 +25,9 @@ const inputNumber = (function () {
         let minusButton: HTMLDivElement = document.createElement('div');
         component.childNodes.forEach((child) => {
           const button: HTMLDivElement = child as HTMLDivElement;
-          if (button.getAttribute(attrElement) === 'input-number-minus') minusButton = button;
+          if (button.getAttribute(global.co_element) === 'input-number-minus') minusButton = button;
 
-          if (button.getAttribute(attrElement) === 'input-number-plus') plusButton = button;
+          if (button.getAttribute(global.co_element) === 'input-number-plus') plusButton = button;
         });
 
         component.childNodes.forEach((child) => {
@@ -60,14 +41,14 @@ const inputNumber = (function () {
             enableButton(plusButton);
 
             //Add or substract one digit on click plus or minus
-            if (button.getAttribute(attrElement) === 'input-number-minus') {
+            if (button.getAttribute(global.co_element) === 'input-number-minus') {
               triggerElement.value = (inputValue - 1).toString();
-              if (hasLimitValue(triggerElement, attributes.min)) disableButton(button);
+              if (hasLimitValue(triggerElement, global.min)) disableButton(button);
             }
 
-            if (button.getAttribute(attrElement) === 'input-number-plus') {
+            if (button.getAttribute(global.co_element) === 'input-number-plus') {
               triggerElement.value = (inputValue + 1).toString();
-              if (hasLimitValue(triggerElement, attributes.max)) disableButton(button);
+              if (hasLimitValue(triggerElement, global.max)) disableButton(button);
             }
           }
 
@@ -97,7 +78,5 @@ const inputNumber = (function () {
   };
 })();
 
-//Initialize segmented control components when page is loaded
-document.addEventListener('DOMContentLoaded', () => {
-  inputNumber.init();
-});
+// Initialize the component
+inputNumber.init();
