@@ -20,9 +20,9 @@ const entryPoints = [
  * @type {esbuild.BuildOptions}
  */
 const defaultSettings = {
-  bundle: production,
+  bundle: true,
   outdir: buildDirectory,
-  minify: false,
+  minify: true,
   sourcemap: !production,
   target: production ? 'es2017' : 'esnext',
   entryPoints,
