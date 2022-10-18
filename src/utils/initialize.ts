@@ -31,3 +31,5 @@ function appendScript(url: string) {
   htmlEl.defer = true;
   document.body.append(htmlEl);
 }
+
+initialize(components);
