@@ -10,7 +10,8 @@ export const initialize = (components: Array<string>) => {
       console.log(`Localhost server detected! (${response.config.url})`);
       getScript(components, stagingUrl);
     })
-    .catch(() => {
+    .catch((error) => {
+      console.log(`CDN detected!`);
       getScript(components, prodUrl);
     });
 };
@@ -18,6 +19,7 @@ export const initialize = (components: Array<string>) => {
 function getScript(components: Array<string>, baseUrl: string) {
   components.forEach((component) => {
     const url = new URL(`${baseUrl}/components/${component}.js`).toString();
+    console.log(url);
     appendScript(url);
   });
 }
