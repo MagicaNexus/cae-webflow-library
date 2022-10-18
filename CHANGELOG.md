@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.4
+
+### Patch Changes
+
+- 2634c5a: Change http request
+
 ## 1.5.3
 
 ### Patch Changes
