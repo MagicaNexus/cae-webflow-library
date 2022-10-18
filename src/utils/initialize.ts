@@ -1,18 +1,26 @@
-import http from 'http';
+import axios from 'axios';
 
 const stagingUrl = 'http://localhost:3000';
 const prodUrl = 'https://cdn.jsdelivr.net/npm/@cae-cobalt/cae-webflow-library@1/dist';
 
 export const initialize = (components: Array<string>) => {
-  http.get({ host: stagingUrl }, function (res) {
-    const isStaging = res.statusCode === 200 || res.statusCode === 301;
-    const baseUrl = isStaging ? stagingUrl : prodUrl;
-    components.forEach((component) => {
-      const url = new URL(`${baseUrl}/components/${component}.js`).toString();
-      appendScript(url);
+  axios
+    .get(stagingUrl)
+    .then((response) => {
+      console.log(`Localhost server detected! (${response.config.url})`);
+      getScript(components, stagingUrl);
+    })
+    .catch(() => {
+      getScript(components, prodUrl);
     });
-  });
 };
+
+function getScript(components: Array<string>, baseUrl: string) {
+  components.forEach((component) => {
+    const url = new URL(`${baseUrl}/components/${component}.js`).toString();
+    appendScript(url);
+  });
+}
 
 function appendScript(url: string) {
   const htmlEl = document.createElement('script');
@@ -22,4 +30,4 @@ function appendScript(url: string) {
   document.body.append(htmlEl);
 }
 
-initialize(['tooltip']);
+//initialize();
