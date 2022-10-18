@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.6
+
+### Patch Changes
+
+- b3ce675: Add initialize function
+
 ## 1.5.5
 
 ### Patch Changes
