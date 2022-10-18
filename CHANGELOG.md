@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.7
+
+### Patch Changes
+
+- 58a5dcb: Adding bundle to scripts
+
 ## 1.5.6
 
 ### Patch Changes
