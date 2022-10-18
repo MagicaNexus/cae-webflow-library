@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.5
+
+### Patch Changes
+
+- c4124d1: esbuild minify to false
+
 ## 1.5.4
 
 ### Patch Changes
