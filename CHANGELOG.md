@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.9
+
+### Patch Changes
+
+- 2631fc4: Adding chip and automate the components init
+
 ## 1.5.8
 
 ### Patch Changes
