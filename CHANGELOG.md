@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.10
+
+### Patch Changes
+
+- 377d48d: Adding versions to components url
+
 ## 1.5.9
 
 ### Patch Changes
