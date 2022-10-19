@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.8
+
+### Patch Changes
+
+- 3cd92a6: Remove axios and add fetch
+
 ## 1.5.7
 
 ### Patch Changes
