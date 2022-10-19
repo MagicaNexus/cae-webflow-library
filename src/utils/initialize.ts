@@ -1,25 +1,25 @@
-import axios from 'axios';
+import { version } from './../../package.json';
 
 const stagingUrl = 'http://localhost:3000';
 const prodUrl = 'https://cdn.jsdelivr.net/npm/@cae-cobalt/cae-webflow-library@1/dist';
 
-export function createComponent(components: Array<string>) {
-  axios
-    .get(stagingUrl)
+export function createComponents(components: Array<string>) {
+  fetch(stagingUrl)
     .then((response) => {
-      console.log(`Localhost server detected! (${response.config.url})`);
-      getScript(components, stagingUrl);
+      console.log(`[v${version}] Localhost server detected! (${response.url})`);
+      getScript(components, stagingUrl, true);
     })
-    .catch((error) => {
-      console.log(`CDN detected!`);
-      getScript(components, prodUrl);
+    .catch(() => {
+      console.log(`[v${version}] CDN detected!`);
+      getScript(components, prodUrl, false);
     });
 
-  function getScript(components: Array<string>, baseUrl: string) {
+  function getScript(components: Array<string>, baseUrl: string, isStaging: boolean) {
     components.forEach((component) => {
       const url = new URL(`${baseUrl}/components/${component}.js`).toString();
-      console.log(`${component} Loaded`);
+
       appendScript(url);
+      if (isStaging) console.log(`${component} Loaded`);
     });
   }
 
@@ -31,5 +31,6 @@ export function createComponent(components: Array<string>) {
     document.body.append(htmlEl);
   }
 }
-
-createComponent(components);
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+createComponents(components);

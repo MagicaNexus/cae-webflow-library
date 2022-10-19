@@ -26,7 +26,7 @@ const defaultSettings = {
   sourcemap: !production,
   target: production ? 'es2017' : 'esnext',
   entryPoints,
-  keepNames: true,
+  keepNames: false,
 };
 
 // Files building
