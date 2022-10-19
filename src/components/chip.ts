@@ -20,7 +20,6 @@ const chip = (function () {
         button.addEventListener('click', closeChip);
 
         function closeChip() {
-          console.log(rowGap);
           fadeOut(component, rowGap);
         }
       });

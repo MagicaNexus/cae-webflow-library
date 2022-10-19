@@ -2,7 +2,7 @@ import { version } from './../../package.json';
 import { settings } from './../global/settings';
 
 const stagingUrl = 'http://localhost:3000';
-const prodUrl = 'https://cdn.jsdelivr.net/npm/@cae-cobalt/cae-webflow-library@1/dist';
+const prodUrl = `https://cdn.jsdelivr.net/npm/@cae-cobalt/cae-webflow-library@${version}/dist`;
 
 export function createComponents(components: Array<string>) {
   fetch(stagingUrl)
