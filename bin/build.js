@@ -10,8 +10,9 @@ const entryPoints = [
   'src/components/accordion.ts',
   'src/components/segmented-control.ts',
   'src/components/input-number.ts',
-  'src/components/input-text.ts',
+  'src/components/text-input.ts',
   'src/components/tooltip.ts',
+  'src/components/chip.ts',
   'src/utils/initialize.ts',
 ];
 
@@ -22,7 +23,7 @@ const entryPoints = [
 const defaultSettings = {
   bundle: true,
   outdir: buildDirectory,
-  minify: true,
+  minify: production,
   sourcemap: !production,
   target: production ? 'es2017' : 'esnext',
   entryPoints,

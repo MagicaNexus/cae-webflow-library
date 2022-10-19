@@ -6,6 +6,7 @@
     "paths": {
       "$utils/*": ["src/utils/*"],
       "$styles/*": ["src/styles/*"],
+      "$animations/*": ["src/animations/*"],
       "$components/*": ["src/components/*"],
       "$global/*": ["src/global/*"]
     }

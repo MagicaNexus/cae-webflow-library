@@ -1,4 +1,5 @@
 import { version } from './../../package.json';
+import { settings } from './../global/settings';
 
 const stagingUrl = 'http://localhost:3000';
 const prodUrl = 'https://cdn.jsdelivr.net/npm/@cae-cobalt/cae-webflow-library@1/dist';
@@ -9,17 +10,17 @@ export function createComponents(components: Array<string>) {
       console.log(`[v${version}] Localhost server detected! (${response.url})`);
       getScript(components, stagingUrl, true);
     })
-    .catch(() => {
+    .catch((error) => {
       console.log(`[v${version}] CDN detected!`);
       getScript(components, prodUrl, false);
     });
 
   function getScript(components: Array<string>, baseUrl: string, isStaging: boolean) {
-    components.forEach((component) => {
+    Object.entries(components).forEach(([, component]) => {
       const url = new URL(`${baseUrl}/components/${component}.js`).toString();
-
+      if (!exist(component)) return;
       appendScript(url);
-      if (isStaging) console.log(`${component} Loaded`);
+      if (isStaging) console.log(`${component} loaded`);
     });
   }
 
@@ -30,7 +31,12 @@ export function createComponents(components: Array<string>) {
     htmlEl.defer = true;
     document.body.append(htmlEl);
   }
+
+  function exist(component: string) {
+    const comp = document.querySelectorAll(`[co-element="${component}"]`);
+    return comp.length === 0 ? false : true;
+  }
 }
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
-createComponents(components);
+createComponents(settings.components);
