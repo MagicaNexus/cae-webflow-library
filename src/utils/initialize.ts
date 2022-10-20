@@ -4,7 +4,7 @@ import { settings } from './../global/settings';
 const stagingUrl = 'http://localhost:3000';
 const prodUrl = `https://cdn.jsdelivr.net/npm/@cae-cobalt/cae-webflow-library@${version}/dist`;
 
-export function createComponents(components: Array<string>) {
+function createComponents(components: Array<string>) {
   fetch(stagingUrl)
     .then((response) => {
       console.log(`[v${version}] Localhost server detected! (${response.url})`);
@@ -26,9 +26,9 @@ export function createComponents(components: Array<string>) {
 
   function appendScript(url: string) {
     const htmlEl = document.createElement('script');
+    htmlEl.defer = true;
     htmlEl.src = url;
     htmlEl.type = 'application/javascript';
-    htmlEl.defer = true;
     document.body.append(htmlEl);
   }
 
@@ -37,6 +37,30 @@ export function createComponents(components: Array<string>) {
     return comp.length === 0 ? false : true;
   }
 }
+
+function initializeScrollbar() {
+  // Get all the elements with the style overflow: auto
+  const elements = document.querySelectorAll('*');
+
+  // Loop through the elements
+  elements.forEach((element) => {
+    // Get the computed style of the element
+    const style = getComputedStyle(element);
+    // Get the overflow property
+    const overflow = style.getPropertyValue('overflow');
+    // If the overflow property is auto
+    if (overflow === 'auto') {
+      // Add the class to the element
+      element.classList.add(settings.classes.scrollbar);
+    }
+  });
+}
+
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 createComponents(settings.components);
+
+//Wait for the DOM to be ready
+document.addEventListener('DOMContentLoaded', () => {
+  initializeScrollbar();
+});

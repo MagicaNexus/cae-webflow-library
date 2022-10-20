@@ -13,6 +13,7 @@ const entryPoints = [
   'src/components/text-input.ts',
   'src/components/tooltip.ts',
   'src/components/chip.ts',
+  'src/components/flag-message.ts',
   'src/utils/initialize.ts',
 ];
 

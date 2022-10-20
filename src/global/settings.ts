@@ -1,6 +1,7 @@
 const coElementAttr = 'co-element';
 const coIconAttr = 'co-icon';
 const coButtonAttr = 'co-button';
+const coTriggerAttr = 'co-trigger';
 
 const globalComponents = {
   tooltip: 'tooltip',
@@ -9,6 +10,7 @@ const globalComponents = {
   segmentedControl: 'segmented-control',
   textInput: 'text-input',
   chip: 'chip',
+  flagMessage: 'flag-message',
 };
 
 const globalClasses = {
@@ -18,6 +20,7 @@ const globalClasses = {
   auto: 'auto',
   ghost: 'ghost',
   ghost_disabled: 'ghost-disabled',
+  scrollbar: 'scrollbar',
 };
 
 const globalIcons = {
@@ -32,6 +35,7 @@ const globalAttributes = {
     co_element: coElementAttr,
     co_icon: coIconAttr,
     co_button: coButtonAttr,
+    co_trigger: coTriggerAttr,
     fieldType: 'co-type',
     min: `co-min`,
     max: `co-max`,
@@ -58,7 +62,11 @@ const globalAttributes = {
   chip: {
     component: `[${coElementAttr}="${globalComponents.chip}"]`,
     list: `[${coElementAttr}="chip-list"]`,
-    icon: `[${coButtonAttr}="remove-chip"]`,
+    hide: `[${coButtonAttr}="hide"]`,
+  },
+  flag_message: {
+    component: `[${coElementAttr}="${globalComponents.flagMessage}"]`,
+    hide: `[${coButtonAttr}="hide"]`,
   },
 };
 
