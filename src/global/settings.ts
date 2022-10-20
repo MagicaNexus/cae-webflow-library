@@ -2,6 +2,11 @@ const coElementAttr = 'co-element';
 const coIconAttr = 'co-icon';
 const coButtonAttr = 'co-button';
 const coTriggerAttr = 'co-trigger';
+export let isLocal = false;
+
+export function setIsLocal(value: boolean) {
+  isLocal = value;
+}
 
 const globalComponents = {
   tooltip: 'tooltip',
