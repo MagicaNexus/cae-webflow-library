@@ -1,6 +1,5 @@
-import { fadeOutElement as fadeOut } from '$animations/fade';
+import { fadeOut } from '$animations/fade';
 import { settings } from '$global/settings';
-import '$styles/accordion.css';
 
 const chip = (function () {
   const attributes = settings.attributes.chip;

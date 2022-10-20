@@ -31,3 +31,14 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+div[co-element="flag-message"] {
+  display: none;
+  opacity: 0;
+  transform:translateX(100px)
+}
+

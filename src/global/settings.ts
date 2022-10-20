@@ -11,6 +11,7 @@ const globalComponents = {
   textInput: 'text-input',
   chip: 'chip',
   flagMessage: 'flag-message',
+  banner: 'banner',
 };
 
 const globalClasses = {
@@ -66,6 +67,10 @@ const globalAttributes = {
   },
   flag_message: {
     component: `[${coElementAttr}="${globalComponents.flagMessage}"]`,
+    hide: `[${coButtonAttr}="hide"]`,
+  },
+  banner: {
+    component: `[${coElementAttr}="${globalComponents.banner}"]`,
     hide: `[${coButtonAttr}="hide"]`,
   },
 };

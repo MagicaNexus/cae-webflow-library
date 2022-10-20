@@ -14,6 +14,7 @@ const entryPoints = [
   'src/components/tooltip.ts',
   'src/components/chip.ts',
   'src/components/flag-message.ts',
+  'src/components/banner.ts',
   'src/utils/initialize.ts',
 ];
 

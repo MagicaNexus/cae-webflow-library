@@ -1,19 +1,21 @@
 import { fadeIn, fadeOut } from '$animations/fade';
 import { settings } from '$global/settings';
 
-const flagMessage = (function () {
-  const attributes = settings.attributes.flag_message;
+const banner = (function () {
+  const attributes = settings.attributes.banner;
   const { global } = settings.attributes;
 
   return {
     init: function () {
-      document.querySelectorAll(attributes.component).forEach((trigger) => {
+      const banners = document.querySelectorAll(attributes.component);
+
+      banners.forEach((trigger) => {
         const component: HTMLElement = trigger as HTMLElement;
         const button: HTMLDivElement | null = component.querySelector(attributes.hide);
 
         component.style.display = 'none';
         component.style.opacity = '0';
-        component.style.transform = 'translateX(100%)';
+        component.style.transform = 'translateY(-100%)';
 
         const triggerAttribute = component.getAttribute(global.co_trigger);
         const triggerElement = document.querySelectorAll(
@@ -21,25 +23,28 @@ const flagMessage = (function () {
         );
 
         triggerElement.forEach((trigger) => {
-          if (trigger.getAttribute(global.co_element) === settings.components.flagMessage) return;
+          if (trigger.getAttribute(global.co_element) === settings.components.banner) return;
+          trigger.addEventListener('click', showBanner);
 
-          trigger.addEventListener('click', showFlagMessage);
+          function showBanner() {
+            banners.forEach((trigger) => {
+              const banner: HTMLElement = trigger as HTMLElement;
+              if (banner === component || banner.style.display === 'none') return;
 
-          function showFlagMessage() {
+              banner.style.display = 'none';
+              fadeOut(banner, undefined, false);
+            });
+
             fadeIn(component);
-
-            setTimeout(() => {
-              fadeOut(component);
-            }, 5000);
           }
         });
 
         if (!button) return;
 
         //On click close button
-        button.addEventListener('click', hideFlagMessage);
+        button.addEventListener('click', hideBanner);
 
-        function hideFlagMessage() {
+        function hideBanner() {
           fadeOut(component);
         }
       });
@@ -48,6 +53,6 @@ const flagMessage = (function () {
 })();
 
 // Initialize the component
-flagMessage.init();
+banner.init();
 
 //TODO add delay on click

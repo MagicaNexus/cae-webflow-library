@@ -1,34 +1,40 @@
-import { fadeIn, fadeOut } from '@finsweet/ts-utils';
+import { fadeIn as utilsFadeIn, fadeOut as utilsFadeOut } from '@finsweet/ts-utils';
 
 import { settings } from '$global/settings';
 
 const { attributes } = settings;
 const { components } = settings;
 
-export const fadeOutElement = (element: HTMLElement, gap = '0px') => {
+export const fadeIn = (element: HTMLElement) => {
+  switch (element.getAttribute(attributes.global.co_element)) {
+    case components.flagMessage:
+      flagFadeIn(element);
+      break;
+    case components.banner:
+      bannerFadeIn(element);
+      break;
+    default:
+      utilsFadeIn(element);
+  }
+};
+
+export const fadeOut = (element: HTMLElement, gap = '0px', hasAnimation = true) => {
   switch (element.getAttribute(attributes.global.co_element)) {
     case components.chip:
-      fadeOutChip(element, gap);
+      chipFadeOut(element, gap);
       break;
     case components.flagMessage:
-      fadeOutTopRight(element);
+      flagFadeOut(element);
+      break;
+    case components.banner:
+      bannerFadeOut(element, hasAnimation);
       break;
     default:
-      fadeOut(element);
+      utilsFadeOut(element);
   }
 };
 
-export const fadeInElement = (element: HTMLElement) => {
-  switch (element.getAttribute(attributes.global.co_element)) {
-    case components.flagMessage:
-      fadeInTopRight(element);
-      break;
-    default:
-      fadeIn(element);
-  }
-};
-
-function fadeOutTopRight(element: HTMLElement) {
+function flagFadeOut(element: HTMLElement) {
   element.style.transition = 'all 0.3s ease-in-out';
   element.style.transform = 'translateX(100%)';
   element.style.opacity = '0';
@@ -37,7 +43,22 @@ function fadeOutTopRight(element: HTMLElement) {
   }, 300);
 }
 
-function fadeOutChip(element: HTMLElement, gap: string) {
+function bannerFadeOut(element: HTMLElement, hasAnimation: boolean) {
+  if (hasAnimation) {
+    element.style.transition = 'all 0.3s ease-in-out';
+    element.style.transform = 'translateY(-100%)';
+    element.style.opacity = '0';
+    setTimeout(() => {
+      element.style.display = 'none';
+    }, 300);
+  } else {
+    element.style.transform = 'translateY(-100%)';
+    element.style.opacity = '0';
+    element.style.display = 'none';
+  }
+}
+
+function chipFadeOut(element: HTMLElement, gap: string) {
   const parent: ParentNode | null = element.parentNode;
   const wrapper: HTMLDivElement = document.createElement('div');
 
@@ -68,11 +89,20 @@ function fadeOutChip(element: HTMLElement, gap: string) {
   }, 500);
 }
 
-function fadeInTopRight(element: HTMLElement) {
+function flagFadeIn(element: HTMLElement) {
   element.style.display = 'flex';
   setTimeout(() => {
     element.style.transition = 'all 0.3s ease-in-out';
     element.style.transform = 'translateX(0%)';
+    element.style.opacity = '100';
+  }, 100);
+}
+
+function bannerFadeIn(element: HTMLElement) {
+  element.style.display = 'flex';
+  setTimeout(() => {
+    element.style.transition = 'all 0.3s ease-in-out';
+    element.style.transform = 'translateY(0%)';
     element.style.opacity = '100';
   }, 100);
 }
