@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.13
+
+### Patch Changes
+
+- 2a237e7: Add logging and index.css to index.ts
+
 ## 1.5.12
 
 ### Patch Changes
