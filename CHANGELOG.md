@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.11
+
+### Patch Changes
+
+- a2b08b2: Add initializer for scrollbars and flag messages animations
+
 ## 1.5.10
 
 ### Patch Changes
