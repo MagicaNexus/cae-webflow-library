@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.12
+
+### Patch Changes
+
+- e5f1d05: Add banners
+
 ## 1.5.11
 
 ### Patch Changes
