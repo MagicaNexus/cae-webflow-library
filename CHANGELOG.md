@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.14
+
+### Patch Changes
+
+- 50e8b1a: Add features to accordions and add styles to DOM
+
 ## 1.5.13
 
 ### Patch Changes
