@@ -42,3 +42,7 @@ div[co-element="flag-message"] {
   transform:translateX(100px)
 }
 
+.truncate {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}

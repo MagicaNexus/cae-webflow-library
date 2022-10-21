@@ -4,37 +4,39 @@ import '$styles/accordion.css';
 const accordion = (function () {
   const { classes } = settings;
   const attributes = settings.attributes.accordion;
-  const closestIcon = `> ${attributes.toogle} > ${attributes.icon}`;
+  const { global } = settings.attributes;
 
   return {
     init: function () {
-      document.querySelectorAll(attributes.toogle).forEach((trigger) => {
-        const triggerElement: HTMLElement = trigger as HTMLElement;
-        const parent: HTMLElement | null = triggerElement.parentElement;
+      const accordions = document.querySelectorAll(attributes.component);
 
-        if (parent == null) return;
+      accordions.forEach((accordion) => {
+        const component: HTMLElement = accordion as HTMLElement;
+        const toogle: HTMLDivElement | null = component.querySelector(attributes.toogle);
+        const icon: HTMLElement | null = component.querySelector(attributes.icon);
+        const body: HTMLDivElement | null = component.querySelector(attributes.body);
+
+        if (!toogle || !icon || !body) return;
 
         //Disable the animation when component has a "disabled" class
-        if (parent.classList.contains(classes.disabled)) {
-          triggerElement.style.pointerEvents = classes.none;
+        if (toogle.classList.contains(classes.disabled)) {
+          component.style.pointerEvents = classes.none;
           return;
         }
 
-        //On click component
-        triggerElement.addEventListener('click', toogleAccordion);
-
-        function toogleAccordion(this: any) {
-          //Rotate the icon of the selected accordion
-          $(this)
-            .closest(attributes.component)
-            .toggleClass(classes.active)
-            .find(closestIcon)
-            .closest(attributes.icon)
-            .toggleClass(classes.active);
-
-          //Toogle the body of the accordion
-          $(this).next().stop().slideToggle(300);
+        if (toogle.getAttribute(global.co_toogle) === global.toggleOn) {
+          body.classList.remove(classes.hide);
+          icon.classList.add(classes.active);
+        } else {
+          body.classList.add(classes.hide);
+          icon.classList.remove(classes.active);
         }
+
+        //On click component
+        toogle.addEventListener('click', function () {
+          icon.classList.toggle(classes.active);
+          $(this).next().stop().slideToggle(300);
+        });
       });
     },
   };

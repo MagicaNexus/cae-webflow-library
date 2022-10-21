@@ -2,6 +2,7 @@ const coElementAttr = 'co-element';
 const coIconAttr = 'co-icon';
 const coButtonAttr = 'co-button';
 const coTriggerAttr = 'co-trigger';
+const coToogleAttr = 'co-toggle';
 export let isLocal = false;
 
 export function setIsLocal(value: boolean) {
@@ -27,6 +28,7 @@ const globalClasses = {
   ghost: 'ghost',
   ghost_disabled: 'ghost-disabled',
   scrollbar: 'scrollbar',
+  hide: 'hide',
 };
 
 const globalIcons = {
@@ -42,14 +44,18 @@ const globalAttributes = {
     co_icon: coIconAttr,
     co_button: coButtonAttr,
     co_trigger: coTriggerAttr,
+    co_toogle: coToogleAttr,
     fieldType: 'co-type',
     min: `co-min`,
     max: `co-max`,
+    toggleOn: `on`,
+    toggleOff: `off`,
   },
   accordion: {
     component: `[${coElementAttr}="${globalComponents.accordion}"]`,
     toogle: `[${coElementAttr}="accordion-toogle"]`,
     icon: `[${coElementAttr}="accordion-icon"]`,
+    body: `[${coElementAttr}="accordion-body"]`,
   },
   input_number: {
     component: `[${coElementAttr}="${globalComponents.inputNumber}"]`,

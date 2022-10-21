@@ -1,5 +1,5 @@
 import { settings } from '$global/settings';
-import '$styles/style.css';
+import '$styles/index.css';
 
 function initializeScrollbar() {
   // Get all the elements with the style overflow: auto

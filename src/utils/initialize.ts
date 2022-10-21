@@ -1,6 +1,6 @@
 import { version } from './../../package.json';
 import { settings, setIsLocal } from './../global/settings';
-import { log } from './log';
+import { log, logAll } from './log';
 
 const staging = 'http://localhost:3000';
 const production = `https://cdn.jsdelivr.net/npm/@cae-cobalt/cae-webflow-library@${version}/dist`;
@@ -17,35 +17,45 @@ function createComponents(components: Array<string>) {
   function createComponents(components: Array<string>, isStaging: boolean) {
     setIsLocal(isStaging);
     const base = isStaging ? staging : production;
-    log(`[v${version}] ${isStaging ? 'Localhost' : 'CDN'} detected! (${base})`);
+    logAll(`[v${version}] ${isStaging ? 'Localhost' : 'CDN'} detected! (${base})`);
 
     Object.entries(components).forEach(([, component]) => {
-      if (!exist(component)) return;
+      if (!componentExist(component)) return;
 
-      const source = new URL(`${base}/components/${component}.js`).toString();
-      document.body.append(getScriptTag(source));
+      const url = `${base}/components/${component}`;
+      createScript(`${url}.js`);
+      createStyle(`${url}.css`);
       log(component);
     });
 
     createIndexScript(base);
   }
-
-  function getScriptTag(url: string) {
-    const htmlEl = document.createElement('script');
-    htmlEl.defer = true;
-    htmlEl.src = url;
-    htmlEl.type = 'application/javascript';
-    return htmlEl;
-  }
-
-  function exist(component: string) {
+  function componentExist(component: string) {
     const comp = document.querySelectorAll(`[co-element="${component}"]`);
     return comp.length === 0 ? false : true;
   }
 
+  function createScript(url: string) {
+    const el = document.createElement('script');
+    el.src = url;
+    el.type = 'text/javascript';
+    document.body.append(el);
+  }
+
+  function createStyle(url: string) {
+    fetch(url).then((response) => {
+      if (!response.ok) return;
+      const el = document.createElement('link');
+      el.rel = 'stylesheet';
+      el.type = 'text/css';
+      el.href = url;
+      document.head.append(el);
+    });
+  }
+
   function createIndexScript(base: string) {
-    const source = new URL(`${base}/index.js`).toString();
-    document.body.append(getScriptTag(source));
+    createScript(`${base}/index.js`);
+    createStyle(`${base}/index.css`);
     log('index');
   }
 }
