@@ -1,4 +1,4 @@
-import { fadeOut } from '$animations/fade';
+import { startChipAnimation } from '$animations/animation';
 import { settings } from '$global/settings';
 
 const chip = (function () {
@@ -15,12 +15,7 @@ const chip = (function () {
 
         const { rowGap } = getComputedStyle(list);
 
-        //On click close button
-        button.addEventListener('click', closeChip);
-
-        function closeChip() {
-          fadeOut(component, rowGap);
-        }
+        startChipAnimation(component, button, rowGap);
       });
     },
   };

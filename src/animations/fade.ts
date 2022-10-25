@@ -81,32 +81,22 @@ export function bannerFadeOut(element: HTMLElement) {
 }
 
 function chipFadeOut(element: HTMLElement, gap: string) {
-  const parent: ParentNode | null = element.parentNode;
-  const wrapper: HTMLDivElement = document.createElement('div');
-
-  if (!parent) return;
-
-  wrapper.style.width = element.offsetWidth.toString() + 'px';
-  wrapper.style.height = element.offsetHeight.toString() + 'px';
-  parent.insertBefore(wrapper, element);
-
-  setTimeout(() => {
-    wrapper.appendChild(element);
-    wrapper.style.transition = 'all 0.3s ease-in-out';
-    wrapper.style.transform = 'translateY(-1.5rem)';
-  }, 0);
-
-  setTimeout(() => {
-    wrapper.style.opacity = '0';
-  }, 50);
-
-  setTimeout(() => {
-    wrapper.style.width = '0px';
-    wrapper.style.height = '0px';
-    wrapper.style.marginLeft = `-${gap}`;
-  }, 200);
-
-  setTimeout(() => {
-    wrapper.style.display = 'none';
-  }, 500);
+  const timeline = gsap.timeline();
+  timeline.to(element, {
+    transform: 'translateY(-1.5rem)',
+    opacity: 0,
+  });
+  timeline.to(
+    element,
+    {
+      width: '0px',
+      height: '0px',
+      marginLeft: `-${gap}`,
+      padding: '0px',
+      onComplete: () => {
+        element.style.display = 'none';
+      },
+    },
+    0.2
+  );
 }
