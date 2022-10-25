@@ -1,8 +1,8 @@
 /* Hide the body of an accordion 
 .accordion-body {
     display: none;
-}*/
+}
 
 .accordion-body.active {
     display: block;
-}
+}*/

@@ -13,6 +13,8 @@ const tooltip = (function () {
         arrow: false,
         delay: [800, 0],
         theme: 'cobalt',
+        maxWidth: '12rem',
+        placement: 'top',
       });
     },
   };

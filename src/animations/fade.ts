@@ -1,9 +1,15 @@
 import { fadeIn as utilsFadeIn, fadeOut as utilsFadeOut } from '@finsweet/ts-utils';
+import gsap from 'gsap';
 
 import { settings } from '$global/settings';
 
 const { attributes } = settings;
 const { components } = settings;
+
+gsap.defaults({
+  ease: 'power1.inOut',
+  duration: 0.3,
+});
 
 export const fadeIn = (element: HTMLElement) => {
   switch (element.getAttribute(attributes.global.co_element)) {
@@ -18,7 +24,7 @@ export const fadeIn = (element: HTMLElement) => {
   }
 };
 
-export const fadeOut = (element: HTMLElement, gap = '0px', hasAnimation = true) => {
+export const fadeOut = (element: HTMLElement, gap = '0px') => {
   switch (element.getAttribute(attributes.global.co_element)) {
     case components.chip:
       chipFadeOut(element, gap);
@@ -27,35 +33,51 @@ export const fadeOut = (element: HTMLElement, gap = '0px', hasAnimation = true) 
       flagFadeOut(element);
       break;
     case components.banner:
-      bannerFadeOut(element, hasAnimation);
+      bannerFadeOut(element);
       break;
     default:
       utilsFadeOut(element);
   }
 };
 
-function flagFadeOut(element: HTMLElement) {
-  element.style.transition = 'all 0.3s ease-in-out';
+function flagFadeIn(element: HTMLElement) {
   element.style.transform = 'translateX(100%)';
   element.style.opacity = '0';
-  setTimeout(() => {
-    element.style.display = 'none';
-  }, 300);
+  gsap.to(element, {
+    transform: 'translateX(0%)',
+    opacity: 1,
+    display: 'flex',
+  });
 }
 
-function bannerFadeOut(element: HTMLElement, hasAnimation: boolean) {
-  if (hasAnimation) {
-    element.style.transition = 'all 0.3s ease-in-out';
-    element.style.transform = 'translateY(-100%)';
-    element.style.opacity = '0';
-    setTimeout(() => {
+function flagFadeOut(element: HTMLElement) {
+  gsap.to(element, {
+    transform: 'translateX(100%)',
+    opacity: 0,
+    onComplete: () => {
       element.style.display = 'none';
-    }, 300);
-  } else {
-    element.style.transform = 'translateY(-100%)';
-    element.style.opacity = '0';
-    element.style.display = 'none';
-  }
+    },
+  });
+}
+
+function bannerFadeIn(element: HTMLElement) {
+  element.style.transform = 'translateY(-100%)';
+  element.style.opacity = '0';
+  gsap.to(element, {
+    transform: 'translateY(0%)',
+    opacity: 1,
+    display: 'flex',
+  });
+}
+
+export function bannerFadeOut(element: HTMLElement) {
+  gsap.to(element, {
+    opacity: 0,
+    transform: 'translateY(-100%)',
+    onComplete: () => {
+      element.style.display = 'none';
+    },
+  });
 }
 
 function chipFadeOut(element: HTMLElement, gap: string) {
@@ -87,22 +109,4 @@ function chipFadeOut(element: HTMLElement, gap: string) {
   setTimeout(() => {
     wrapper.style.display = 'none';
   }, 500);
-}
-
-function flagFadeIn(element: HTMLElement) {
-  element.style.display = 'flex';
-  setTimeout(() => {
-    element.style.transition = 'all 0.3s ease-in-out';
-    element.style.transform = 'translateX(0%)';
-    element.style.opacity = '100';
-  }, 100);
-}
-
-function bannerFadeIn(element: HTMLElement) {
-  element.style.display = 'flex';
-  setTimeout(() => {
-    element.style.transition = 'all 0.3s ease-in-out';
-    element.style.transform = 'translateY(0%)';
-    element.style.opacity = '100';
-  }, 100);
 }

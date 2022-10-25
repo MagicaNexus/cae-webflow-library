@@ -36,12 +36,6 @@ input::-webkit-inner-spin-button {
   -webkit-appearance: none;
 }
 
-div[co-element="flag-message"] {
-  display: none;
-  opacity: 0;
-  transform:translateX(100px)
-}
-
 .truncate {
   white-space: nowrap;
   text-overflow: ellipsis;

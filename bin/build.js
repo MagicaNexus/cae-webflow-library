@@ -8,13 +8,14 @@ const production = process.env.NODE_ENV === 'production';
 const entryPoints = [
   'src/index.ts',
   'src/components/accordion.ts',
-  'src/components/segmented-control.ts',
-  'src/components/input-number.ts',
-  'src/components/text-input.ts',
-  'src/components/tooltip.ts',
+  'src/components/banner.ts',
   'src/components/chip.ts',
   'src/components/flag-message.ts',
-  'src/components/banner.ts',
+  'src/components/input-number.ts',
+  'src/components/segmented-control.ts',
+  'src/components/side-navigation.ts',
+  'src/components/text-input.ts',
+  'src/components/tooltip.ts',
   'src/utils/initialize.ts',
 ];
 

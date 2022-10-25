@@ -2,7 +2,8 @@ const coElementAttr = 'co-element';
 const coIconAttr = 'co-icon';
 const coButtonAttr = 'co-button';
 const coTriggerAttr = 'co-trigger';
-const coToogleAttr = 'co-toggle';
+const coToggleAttr = 'co-toggle';
+const coBelongigAttr = 'co-belonging';
 export let isLocal = false;
 
 export function setIsLocal(value: boolean) {
@@ -10,14 +11,16 @@ export function setIsLocal(value: boolean) {
 }
 
 const globalComponents = {
-  tooltip: 'tooltip',
   accordion: 'accordion',
-  inputNumber: 'input-number',
-  segmentedControl: 'segmented-control',
-  textInput: 'text-input',
-  chip: 'chip',
-  flagMessage: 'flag-message',
+  background: 'background',
   banner: 'banner',
+  chip: 'chip',
+  inputNumber: 'input-number',
+  flagMessage: 'flag-message',
+  segmentedControl: 'segmented-control',
+  sideNavigation: 'side-navigation',
+  textInput: 'text-input',
+  tooltip: 'tooltip',
 };
 
 const globalClasses = {
@@ -29,6 +32,8 @@ const globalClasses = {
   ghost_disabled: 'ghost-disabled',
   scrollbar: 'scrollbar',
   hide: 'hide',
+  open: 'open',
+  close: 'close',
 };
 
 const globalIcons = {
@@ -44,7 +49,8 @@ const globalAttributes = {
     co_icon: coIconAttr,
     co_button: coButtonAttr,
     co_trigger: coTriggerAttr,
-    co_toogle: coToogleAttr,
+    co_toggle: coToggleAttr,
+    co_belonging: coBelongigAttr,
     fieldType: 'co-type',
     min: `co-min`,
     max: `co-max`,
@@ -53,9 +59,10 @@ const globalAttributes = {
   },
   accordion: {
     component: `[${coElementAttr}="${globalComponents.accordion}"]`,
-    toogle: `[${coElementAttr}="accordion-toogle"]`,
+    toggle: `[${coElementAttr}="accordion-toggle"]`,
     icon: `[${coElementAttr}="accordion-icon"]`,
     body: `[${coElementAttr}="accordion-body"]`,
+    belonging: `[${coBelongigAttr}="${globalComponents.sideNavigation}"]`,
   },
   input_number: {
     component: `[${coElementAttr}="${globalComponents.inputNumber}"]`,
@@ -70,10 +77,11 @@ const globalAttributes = {
     icon: `[${coElementAttr}="text-input-field-password-icon"]`,
   },
   segmented_control: `[${coElementAttr}="${globalComponents.segmentedControl}"]`,
+  background: `[${coElementAttr}="${globalComponents.background}"]`,
   tooltip: `[${coElementAttr}="${globalComponents.tooltip}"]`,
   chip: {
     component: `[${coElementAttr}="${globalComponents.chip}"]`,
-    list: `[${coElementAttr}="chip-list"]`,
+    list: `[${coElementAttr}="list"]`,
     hide: `[${coButtonAttr}="hide"]`,
   },
   flag_message: {
@@ -83,6 +91,12 @@ const globalAttributes = {
   banner: {
     component: `[${coElementAttr}="${globalComponents.banner}"]`,
     hide: `[${coButtonAttr}="hide"]`,
+  },
+  sideNavigation: {
+    component: `[${coElementAttr}="${globalComponents.sideNavigation}"]`,
+    backing: `[${coElementAttr}="side-navigation-backing"]`,
+    icon: `[${coElementAttr}="side-navigation-icon"]`,
+    navButton: `[${coToggleAttr}="navbar"]`,
   },
 };
 

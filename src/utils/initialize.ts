@@ -18,6 +18,7 @@ function createComponents(components: Array<string>) {
     setIsLocal(isStaging);
     const base = isStaging ? staging : production;
     logAll(`[v${version}] ${isStaging ? 'Localhost' : 'CDN'} detected! (${base})`);
+    createIndexScript(base);
 
     Object.entries(components).forEach(([, component]) => {
       if (!componentExist(component)) return;
@@ -27,8 +28,6 @@ function createComponents(components: Array<string>) {
       createStyle(`${url}.css`);
       log(component);
     });
-
-    createIndexScript(base);
   }
   function componentExist(component: string) {
     const comp = document.querySelectorAll(`[co-element="${component}"]`);

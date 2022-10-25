@@ -1,5 +1,6 @@
-import { fadeIn, fadeOut } from '$animations/fade';
+import { startFlagAnimation } from '$animations/animation';
 import { settings } from '$global/settings';
+import '$styles/flag-message.css';
 
 const flagMessage = (function () {
   const attributes = settings.attributes.flag_message;
@@ -8,12 +9,8 @@ const flagMessage = (function () {
   return {
     init: function () {
       document.querySelectorAll(attributes.component).forEach((trigger) => {
-        const component: HTMLElement = trigger as HTMLElement;
-        const button: HTMLDivElement | null = component.querySelector(attributes.hide);
-
-        component.style.display = 'none';
-        component.style.opacity = '0';
-        component.style.transform = 'translateX(100%)';
+        const component = trigger as HTMLElement;
+        const button = component.querySelector(attributes.hide) as HTMLDivElement;
 
         const triggerAttribute = component.getAttribute(global.co_trigger);
         const triggerElement = document.querySelectorAll(
@@ -23,25 +20,10 @@ const flagMessage = (function () {
         triggerElement.forEach((trigger) => {
           if (trigger.getAttribute(global.co_element) === settings.components.flagMessage) return;
 
-          trigger.addEventListener('click', showFlagMessage);
-
-          function showFlagMessage() {
-            fadeIn(component);
-
-            setTimeout(() => {
-              fadeOut(component);
-            }, 5000);
-          }
+          trigger.addEventListener('click', function () {
+            startFlagAnimation(component, button);
+          });
         });
-
-        if (!button) return;
-
-        //On click close button
-        button.addEventListener('click', hideFlagMessage);
-
-        function hideFlagMessage() {
-          fadeOut(component);
-        }
       });
     },
   };
@@ -49,5 +31,3 @@ const flagMessage = (function () {
 
 // Initialize the component
 flagMessage.init();
-
-//TODO add delay on click
