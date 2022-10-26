@@ -2,16 +2,18 @@ import { fadeIn, fadeOut } from './fade';
 
 export const startFlagAnimation = (
   element: HTMLElement,
-  button: HTMLElement,
+  buttons: NodeList,
   timer = 5000,
   delay = 0
 ) => {
   const timeout = setTimeout(setTimer, timer);
   setTimeout(setDelay, delay);
 
-  button.addEventListener('click', function () {
-    fadeOut(element);
-    clearTimeout(timeout);
+  buttons.forEach((button) => {
+    button.addEventListener('click', function () {
+      fadeOut(element);
+      clearTimeout(timeout);
+    });
   });
 
   function setDelay() {
@@ -23,11 +25,13 @@ export const startFlagAnimation = (
   }
 };
 
-export const startBannerAnimation = (element: HTMLElement, button: HTMLElement, delay = 300) => {
+export const startBannerAnimation = (element: HTMLElement, buttons: NodeList, delay = 300) => {
   setTimeout(setDelay, delay);
 
-  button.addEventListener('click', function () {
-    fadeOut(element);
+  buttons.forEach((button) => {
+    button.addEventListener('click', function () {
+      fadeOut(element);
+    });
   });
 
   function setDelay() {
@@ -38,5 +42,19 @@ export const startBannerAnimation = (element: HTMLElement, button: HTMLElement, 
 export const startChipAnimation = (element: HTMLElement, button: HTMLElement, gap: string) => {
   button.addEventListener('click', function () {
     fadeOut(element, gap);
+  });
+};
+
+export const startModalAnimation = (element: HTMLElement, buttons: NodeList, delay = 300) => {
+  setTimeout(setDelay, delay);
+
+  function setDelay() {
+    fadeIn(element);
+  }
+
+  buttons.forEach((button) => {
+    button.addEventListener('click', function () {
+      fadeOut(element);
+    });
   });
 };

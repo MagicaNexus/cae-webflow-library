@@ -3,7 +3,7 @@ const coIconAttr = 'co-icon';
 const coButtonAttr = 'co-button';
 const coTriggerAttr = 'co-trigger';
 const coToggleAttr = 'co-toggle';
-const coBelongigAttr = 'co-belonging';
+const coBelongingAttr = 'co-belonging';
 export let isLocal = false;
 
 export function setIsLocal(value: boolean) {
@@ -17,6 +17,7 @@ const globalComponents = {
   chip: 'chip',
   inputNumber: 'input-number',
   flagMessage: 'flag-message',
+  modal: 'modal',
   segmentedControl: 'segmented-control',
   sideNavigation: 'side-navigation',
   textInput: 'text-input',
@@ -34,6 +35,8 @@ const globalClasses = {
   hide: 'hide',
   open: 'open',
   close: 'close',
+  lightMode: 'light-mode',
+  darkMode: 'dark-mode',
 };
 
 const globalIcons = {
@@ -50,19 +53,21 @@ const globalAttributes = {
     co_button: coButtonAttr,
     co_trigger: coTriggerAttr,
     co_toggle: coToggleAttr,
-    co_belonging: coBelongigAttr,
+    co_belonging: coBelongingAttr,
     fieldType: 'co-type',
     min: `co-min`,
     max: `co-max`,
     toggleOn: `on`,
     toggleOff: `off`,
+    lightMode: `[${coToggleAttr}="${globalClasses.lightMode}"]`,
+    darkMode: `[${coToggleAttr}="${globalClasses.darkMode}"]`,
   },
   accordion: {
     component: `[${coElementAttr}="${globalComponents.accordion}"]`,
     toggle: `[${coElementAttr}="accordion-toggle"]`,
     icon: `[${coElementAttr}="accordion-icon"]`,
     body: `[${coElementAttr}="accordion-body"]`,
-    belonging: `[${coBelongigAttr}="${globalComponents.sideNavigation}"]`,
+    belonging: `[${coBelongingAttr}="${globalComponents.sideNavigation}"]`,
   },
   input_number: {
     component: `[${coElementAttr}="${globalComponents.inputNumber}"]`,
@@ -86,6 +91,10 @@ const globalAttributes = {
   },
   flag_message: {
     component: `[${coElementAttr}="${globalComponents.flagMessage}"]`,
+    hide: `[${coButtonAttr}="hide"]`,
+  },
+  modal: {
+    component: `[${coElementAttr}="${globalComponents.modal}"]`,
     hide: `[${coButtonAttr}="hide"]`,
   },
   banner: {

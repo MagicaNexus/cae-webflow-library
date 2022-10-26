@@ -1,6 +1,7 @@
 import gsap from 'gsap';
 
 import { settings } from '$global/settings';
+import '$styles/side-navigation.css';
 
 const sideNavigation = (function () {
   const attributes = settings.attributes.sideNavigation;

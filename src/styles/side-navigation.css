@@ -1,0 +1,5 @@
+@media only screen and (min-width: 992px) {
+    aside[co-element="side-navigation"] {
+            display: flex !important;
+        }
+}
