@@ -11,9 +11,9 @@ const banner = (function () {
     init: function () {
       const banners = document.querySelectorAll(attributes.component);
 
-      banners.forEach((trigger) => {
-        const component = trigger as HTMLElement;
-        const button = component.querySelector(attributes.hide) as HTMLDivElement;
+      banners.forEach((banner) => {
+        const component = banner as HTMLElement;
+        const buttons = component.querySelectorAll(attributes.hide) as NodeList;
         const triggerAttribute = component.getAttribute(global.co_trigger);
         const triggerElement = document.querySelectorAll(
           `[${global.co_trigger}="${triggerAttribute}"]`
@@ -23,7 +23,7 @@ const banner = (function () {
           if (trigger.getAttribute(global.co_element) === settings.components.banner) return;
 
           trigger.addEventListener('click', function () {
-            startBannerAnimation(component, button);
+            startBannerAnimation(component, buttons);
             banners.forEach((trigger) => {
               const banner = trigger as HTMLElement;
               if (banner === component || banner.style.display === 'none') return;
@@ -31,20 +31,7 @@ const banner = (function () {
               fadeOut(banner);
             });
           });
-
-          function removeBanners() {
-            fadeIn(component);
-          }
         });
-
-        if (!button) return;
-
-        //On click close button
-        button.addEventListener('click', hideBanner);
-
-        function hideBanner() {
-          fadeOut(component);
-        }
       });
     },
   };

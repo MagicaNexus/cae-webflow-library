@@ -7,9 +7,9 @@ const chip = (function () {
   return {
     init: function () {
       document.querySelectorAll(attributes.component).forEach((trigger) => {
-        const component: HTMLElement = trigger as HTMLElement;
-        const button: HTMLDivElement | null = component.querySelector(attributes.hide);
-        const list: HTMLDivElement | null = component.closest(attributes.list);
+        const component = trigger as HTMLElement;
+        const button = component.querySelector(attributes.hide) as HTMLDivElement;
+        const list = component.closest(attributes.list) as HTMLDivElement;
 
         if (!button || !list) return;
 

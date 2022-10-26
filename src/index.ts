@@ -1,3 +1,5 @@
+import Darkmode from 'darkmode-js';
+
 import { settings } from '$global/settings';
 import '$styles/index.css';
 
@@ -16,7 +18,11 @@ function initializeScrollbar() {
   });
 }
 
-//Wait for the DOM to be ready
-document.addEventListener('DOMContentLoaded', () => {
-  initializeScrollbar();
-});
+function initializeDarkMode() {
+  const darkmode = new Darkmode();
+  new Darkmode().showWidget();
+  //console.log(darkmode.isActivated());
+}
+
+initializeScrollbar();
+initializeDarkMode();
