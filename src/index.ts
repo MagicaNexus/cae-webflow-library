@@ -1,7 +1,18 @@
-import Darkmode from 'darkmode-js';
-
 import { settings } from '$global/settings';
 import '$styles/index.css';
+import { init } from '$utils/initialize';
+
+import { version } from './../package.json';
+
+window.Webflow ||= [];
+window.Webflow.push(() => {
+  init();
+  initializeScrollbar();
+});
+
+const versionTag = document.querySelector('[co-element="library-version"]');
+if (versionTag) versionTag.innerHTML = version;
+console.log('version', version);
 
 function initializeScrollbar() {
   // Get all the elements with the style overflow: auto
@@ -17,12 +28,3 @@ function initializeScrollbar() {
     }
   });
 }
-
-function initializeDarkMode() {
-  const darkmode = new Darkmode();
-  new Darkmode().showWidget();
-  //console.log(darkmode.isActivated());
-}
-
-initializeScrollbar();
-initializeDarkMode();

@@ -5,7 +5,11 @@ import { log, logAll } from './log';
 const staging = 'http://localhost:3000';
 const production = `https://cdn.jsdelivr.net/npm/@cae-cobalt/cae-webflow-library@${version}/dist`;
 
-function createComponents(components: Array<string>) {
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-ignore
+const components = settings.components as Array<string>;
+
+export function init() {
   fetch(staging)
     .then(() => {
       createComponents(components, true);
@@ -53,12 +57,8 @@ function createComponents(components: Array<string>) {
   }
 
   function createIndexScript(base: string) {
-    createScript(`${base}/index.js`);
+    //createScript(`${base}/index.js`);
     createStyle(`${base}/index.css`);
     log('index');
   }
 }
-
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-ignore
-createComponents(settings.components);
