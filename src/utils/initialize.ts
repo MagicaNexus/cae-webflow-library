@@ -4,6 +4,8 @@ import { log, logAll } from './log';
 
 const staging = 'http://localhost:3000';
 const production = `https://cdn.jsdelivr.net/npm/@cae-cobalt/cae-webflow-library@${version}/dist`;
+const rangeSliderUrl =
+  'https://cdn.jsdelivr.net/npm/@finsweet/attributes-rangeslider@1/rangeslider.js';
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
@@ -23,9 +25,11 @@ export function init() {
     const base = isStaging ? staging : production;
     logAll(`[v${version}] ${isStaging ? 'Localhost' : 'CDN'} detected! (${base})`);
     createIndexScript(base);
+    createScript(rangeSliderUrl);
 
     Object.entries(components).forEach(([, component]) => {
       if (!componentExist(component)) return;
+      if (component === settings.components.rangeSlider) createScript(rangeSliderUrl);
 
       const url = `${base}/components/${component}`;
       createScript(`${url}.js`);

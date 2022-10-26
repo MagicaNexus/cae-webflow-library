@@ -18,6 +18,7 @@ const globalComponents = {
   inputNumber: 'input-number',
   flagMessage: 'flag-message',
   modal: 'modal',
+  rangeSlider: 'range-slider',
   segmentedControl: 'segmented-control',
   sideNavigation: 'side-navigation',
   sidePanel: 'side-panel',
