@@ -60,3 +60,19 @@ export const startModalAnimation = (element: HTMLElement, buttons: NodeList, del
     });
   });
 };
+
+export const startSidePanelAnimation = (element: HTMLElement, buttons: NodeList, delay = 0) => {
+  setTimeout(setDelay, delay);
+
+  function setDelay() {
+    fadeIn(element);
+  }
+
+  buttons.forEach((btn) => {
+    const button = btn as HTMLAnchorElement;
+    button.href = 'javascript:void(0)';
+    button.addEventListener('click', function () {
+      fadeOut(element);
+    });
+  });
+};

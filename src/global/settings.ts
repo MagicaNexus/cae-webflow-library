@@ -20,6 +20,7 @@ const globalComponents = {
   modal: 'modal',
   segmentedControl: 'segmented-control',
   sideNavigation: 'side-navigation',
+  sidePanel: 'side-panel',
   textInput: 'text-input',
   tooltip: 'tooltip',
 };
@@ -95,6 +96,10 @@ const globalAttributes = {
   },
   modal: {
     component: `[${coElementAttr}="${globalComponents.modal}"]`,
+    hide: `[${coButtonAttr}="hide"]`,
+  },
+  sidePanel: {
+    component: `[${coElementAttr}="${globalComponents.sidePanel}"]`,
     hide: `[${coButtonAttr}="hide"]`,
   },
   banner: {

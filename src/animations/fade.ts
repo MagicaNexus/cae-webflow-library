@@ -22,6 +22,9 @@ export const fadeIn = (element: HTMLElement) => {
     case components.modal:
       modalFadeIn(element);
       break;
+    case components.sidePanel:
+      sidePanelFadeIn(element);
+      break;
     default:
       utilsFadeIn(element);
   }
@@ -41,11 +44,48 @@ export const fadeOut = (element: HTMLElement, gap = '0px') => {
     case components.modal:
       modalFadeOut(element);
       break;
+    case components.sidePanel:
+      sidePanelFadeOut(element);
+      break;
     default:
       utilsFadeOut(element);
   }
 };
 
+function sidePanelFadeIn(element: HTMLElement) {
+  const card = element.firstChild as HTMLElement;
+  card.style.transform = 'translateX(1rem)';
+  card.style.opacity = '0';
+  element.style.opacity = '0';
+
+  const timeline = gsap.timeline();
+
+  timeline.to(element, {
+    opacity: 1,
+    display: 'flex',
+  });
+
+  timeline.to(
+    card,
+    {
+      transform: 'translateX(0rem)',
+      opacity: 1,
+    },
+    0
+  );
+}
+
+export function sidePanelFadeOut(element: HTMLElement) {
+  const card = element.firstChild as HTMLElement;
+  gsap.to(card, {
+    transform: 'translateX(1rem)',
+  });
+
+  gsap.to(element, {
+    opacity: 0,
+    display: 'none',
+  });
+}
 function modalFadeIn(element: HTMLElement) {
   const card = element.firstChild as HTMLElement;
   card.style.transform = 'translateY(1rem)';

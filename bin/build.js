@@ -15,6 +15,7 @@ const entryPoints = [
   'src/components/modal.ts',
   'src/components/segmented-control.ts',
   'src/components/side-navigation.ts',
+  'src/components/side-panel.ts',
   'src/components/text-input.ts',
   'src/components/tooltip.ts',
   'src/utils/initialize.ts',
