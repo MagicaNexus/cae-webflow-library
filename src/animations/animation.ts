@@ -45,14 +45,16 @@ export const startChipAnimation = (element: HTMLElement, button: HTMLElement, ga
   });
 };
 
-export const startModalAnimation = (element: HTMLElement, buttons: NodeList, delay = 300) => {
+export const startModalAnimation = (element: HTMLElement, buttons: NodeList, delay = 0) => {
   setTimeout(setDelay, delay);
 
   function setDelay() {
     fadeIn(element);
   }
 
-  buttons.forEach((button) => {
+  buttons.forEach((btn) => {
+    const button = btn as HTMLAnchorElement;
+    button.href = 'javascript:void(0)';
     button.addEventListener('click', function () {
       fadeOut(element);
     });

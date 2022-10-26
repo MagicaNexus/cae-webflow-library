@@ -10,7 +10,7 @@ const flagMessage = (function () {
     init: function () {
       document.querySelectorAll(attributes.component).forEach((trigger) => {
         const component = trigger as HTMLElement;
-        const button = component.querySelector(attributes.hide) as HTMLDivElement;
+        const buttons = component.querySelectorAll(attributes.hide) as NodeList;
 
         const triggerAttribute = component.getAttribute(global.co_trigger);
         const triggerElement = document.querySelectorAll(
@@ -21,7 +21,7 @@ const flagMessage = (function () {
           if (trigger.getAttribute(global.co_element) === settings.components.flagMessage) return;
 
           trigger.addEventListener('click', function () {
-            startFlagAnimation(component, button);
+            startFlagAnimation(component, buttons);
           });
         });
       });

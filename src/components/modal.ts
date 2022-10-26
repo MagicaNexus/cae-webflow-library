@@ -1,5 +1,7 @@
 import { startModalAnimation } from '$animations/animation';
+import { modalFadeOut } from '$animations/fade';
 import { settings } from '$global/settings';
+import '$styles/modal.css';
 
 const modal = (function () {
   const attributes = settings.attributes.modal;
@@ -18,7 +20,18 @@ const modal = (function () {
         );
 
         triggerElement.forEach((trigger) => {
-          if (trigger.getAttribute(global.co_element) === settings.components.modal) return;
+          if (trigger.getAttribute(global.co_element) === settings.components.modal) {
+            const card = component.firstChild as HTMLElement;
+
+            trigger.addEventListener('click', function () {
+              modalFadeOut(component);
+            });
+            if (!card) return;
+            card.addEventListener('click', function (e) {
+              e.stopPropagation();
+            });
+            return;
+          }
           trigger.addEventListener('click', function () {
             startModalAnimation(component, buttons);
           });

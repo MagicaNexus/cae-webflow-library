@@ -19,6 +19,9 @@ export const fadeIn = (element: HTMLElement) => {
     case components.banner:
       bannerFadeIn(element);
       break;
+    case components.modal:
+      modalFadeIn(element);
+      break;
     default:
       utilsFadeIn(element);
   }
@@ -35,10 +38,48 @@ export const fadeOut = (element: HTMLElement, gap = '0px') => {
     case components.banner:
       bannerFadeOut(element);
       break;
+    case components.modal:
+      modalFadeOut(element);
+      break;
     default:
       utilsFadeOut(element);
   }
 };
+
+function modalFadeIn(element: HTMLElement) {
+  const card = element.firstChild as HTMLElement;
+  card.style.transform = 'translateY(1rem)';
+  card.style.opacity = '0';
+  element.style.opacity = '0';
+
+  const timeline = gsap.timeline();
+
+  timeline.to(element, {
+    opacity: 1,
+    display: 'flex',
+  });
+
+  timeline.to(
+    card,
+    {
+      transform: 'translateY(0rem)',
+      opacity: 1,
+    },
+    0
+  );
+}
+
+export function modalFadeOut(element: HTMLElement) {
+  const card = element.firstChild as HTMLElement;
+  gsap.to(card, {
+    transform: 'translateY(1rem)',
+  });
+
+  gsap.to(element, {
+    opacity: 0,
+    display: 'none',
+  });
+}
 
 function flagFadeIn(element: HTMLElement) {
   element.style.transform = 'translateX(100%)';
