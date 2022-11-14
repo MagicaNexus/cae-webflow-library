@@ -112,6 +112,7 @@ const globalAttributes = {
     backing: `[${coElementAttr}="side-navigation-backing"]`,
     icon: `[${coElementAttr}="side-navigation-icon"]`,
     navButton: `[${coToggleAttr}="navbar"]`,
+    bodySpacer: `[${coElementAttr}="side-navigation-body-spacer"]`,
   },
 };
 

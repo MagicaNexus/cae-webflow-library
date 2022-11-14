@@ -8,11 +8,10 @@ window.Webflow ||= [];
 window.Webflow.push(() => {
   init();
   initializeScrollbar();
-});
 
-const versionTag = document.querySelector('[co-element="library-version"]');
-if (versionTag) versionTag.innerHTML = version;
-console.log('version', version);
+  const versionTag = document.querySelector('[co-element="library-version"]');
+  if (versionTag) versionTag.innerHTML = version;
+});
 
 function initializeScrollbar() {
   // Get all the elements with the style overflow: auto

@@ -86,6 +86,7 @@ export function sidePanelFadeOut(element: HTMLElement) {
     display: 'none',
   });
 }
+
 function modalFadeIn(element: HTMLElement) {
   const card = element.firstChild as HTMLElement;
   card.style.transform = 'translateY(1rem)';

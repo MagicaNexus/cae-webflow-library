@@ -45,13 +45,13 @@ const sideNavigation = (function () {
         const accordionIcons: NodeList = component.querySelectorAll(accordionAttr.icon);
         const background = document.querySelector(settings.attributes.background) as HTMLElement;
         const backing = component.querySelector(attributes.backing) as HTMLDivElement;
+        const backingIcon = backing.querySelector(attributes.icon) as HTMLElement;
         const hamburger = document.querySelector(attributes.navButton) as HTMLDivElement;
+        const bodySpacer = document.querySelector(attributes.bodySpacer) as HTMLDivElement;
 
         let isOpenDesktop = component.getAttribute(global.co_toggle) === global.toggleOn;
         let isOpenMobile = false;
         let firstClick = true;
-
-        const backingIcon = backing.querySelector(attributes.icon) as HTMLElement;
 
         initialize();
 
@@ -83,6 +83,7 @@ const sideNavigation = (function () {
               if (!isOpenMobile) component.style.display = 'none';
             },
           });
+
           gsap.to(background, {
             opacity: isOpenMobile ? 1 : 0,
             onStart: () => {
@@ -134,6 +135,9 @@ const sideNavigation = (function () {
           const option = isOpenDesktop ? options.open : options.close;
 
           gsap.to(component, {
+            width: option.width,
+          });
+          gsap.to(bodySpacer, {
             width: option.width,
           });
           gsap.to(backingIcon, {
