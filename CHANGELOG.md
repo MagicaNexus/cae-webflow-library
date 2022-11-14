@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.16
+
+### Patch Changes
+
+- 726f66e: Add copyright year
+
 ## 1.5.15
 
 ### Patch Changes
