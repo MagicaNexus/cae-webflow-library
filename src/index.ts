@@ -11,6 +11,9 @@ window.Webflow.push(() => {
 
   const versionTag = document.querySelector('[co-element="library-version"]');
   if (versionTag) versionTag.innerHTML = version;
+
+  const copyrightYEar = document.querySelector('[co-element="copyright-year"]');
+  if (copyrightYEar) copyrightYEar.innerHTML = new Date().getFullYear().toString();
 });
 
 function initializeScrollbar() {
