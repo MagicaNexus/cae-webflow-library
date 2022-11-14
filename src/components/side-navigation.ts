@@ -127,6 +127,7 @@ const sideNavigation = (function () {
 
           if (isOpenDesktop || !backingIcon) return;
           component.classList.add(settings.classes.close);
+          bodySpacer.classList.add(settings.classes.close);
           backingIcon.style.transform = `rotate(${options.close.backing.rotate}deg)`;
         }
 

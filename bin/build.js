@@ -18,6 +18,7 @@ const entryPoints = [
   'src/components/side-panel.ts',
   'src/components/text-input.ts',
   'src/components/tooltip.ts',
+  'src/projects/prototypes/pilot-experience/index.ts',
   'src/utils/initialize.ts',
 ];
 
