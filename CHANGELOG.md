@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.15
+
+### Patch Changes
+
+- d8b373b: ADD Range slider, Side Pnels and Modals
+
 ## 1.5.14
 
 ### Patch Changes
