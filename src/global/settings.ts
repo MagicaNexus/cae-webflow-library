@@ -14,6 +14,7 @@ const globalComponents = {
   accordion: 'accordion',
   background: 'background',
   banner: 'banner',
+  chart: 'chart',
   chip: 'chip',
   inputNumber: 'input-number',
   flagMessage: 'flag-message',
@@ -70,6 +71,9 @@ const globalAttributes = {
     icon: `[${coElementAttr}="accordion-icon"]`,
     body: `[${coElementAttr}="accordion-body"]`,
     belonging: `[${coBelongingAttr}="${globalComponents.sideNavigation}"]`,
+  },
+  chart: {
+    component: `[${coElementAttr}="${globalComponents.chart}"]`,
   },
   input_number: {
     component: `[${coElementAttr}="${globalComponents.inputNumber}"]`,

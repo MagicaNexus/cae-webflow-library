@@ -106,7 +106,7 @@ function modalFadeIn(element: HTMLElement) {
       transform: 'translateY(0rem)',
       opacity: 1,
     },
-    0
+    0.3
   );
 }
 

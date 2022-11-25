@@ -9,6 +9,7 @@ const entryPoints = [
   'src/index.ts',
   'src/components/accordion.ts',
   'src/components/banner.ts',
+  'src/components/chart.ts',
   'src/components/chip.ts',
   'src/components/flag-message.ts',
   'src/components/input-number.ts',

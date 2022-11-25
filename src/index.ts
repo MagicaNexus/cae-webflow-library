@@ -4,17 +4,14 @@ import { init } from '$utils/initialize';
 
 import { version } from './../package.json';
 
-window.Webflow ||= [];
-window.Webflow.push(() => {
-  init();
-  initializeScrollbar();
+init();
+initializeScrollbar();
 
-  const versionTag = document.querySelector('[co-element="library-version"]');
-  if (versionTag) versionTag.innerHTML = version;
+const versionTag = document.querySelector('[co-element="library-version"]');
+if (versionTag) versionTag.innerHTML = version;
 
-  const copyrightYEar = document.querySelector('[co-element="copyright-year"]');
-  if (copyrightYEar) copyrightYEar.innerHTML = new Date().getFullYear().toString();
-});
+const copyrightYEar = document.querySelector('[co-element="copyright-year"]');
+if (copyrightYEar) copyrightYEar.innerHTML = new Date().getFullYear().toString();
 
 function initializeScrollbar() {
   // Get all the elements with the style overflow: auto

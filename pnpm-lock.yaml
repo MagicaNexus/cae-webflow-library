@@ -11,6 +11,7 @@ specifiers:
   '@types/jquery': ^3.5.14
   '@typescript-eslint/eslint-plugin': ^5.39.0
   '@typescript-eslint/parser': ^5.39.0
+  chart.js: ^4.0.1
   cross-env: ^7.0.3
   darkmode-js: ^1.5.7
   esbuild: ^0.15.10
@@ -24,6 +25,7 @@ specifiers:
 
 dependencies:
   '@finsweet/ts-utils': 0.33.2
+  chart.js: 4.0.1
   darkmode-js: 1.5.7
   gsap: 3.11.3
   tippy.js: 6.3.7
@@ -1009,6 +1011,11 @@ packages:
   /chardet/0.7.0:
     resolution: {integrity: sha512-mT8iDcrh03qDGRRmoA2hmBJnxpllMR+0/0qlzjqZES6NdiWDcZkCNAk4rPFZ9Q85r27unkiNNg8ZOiwZXBHwcA==}
     dev: true
+
+  /chart.js/4.0.1:
+    resolution: {integrity: sha512-5/8/9eBivwBZK81mKvmIwTb2Pmw4D/5h1RK9fBWZLLZ8mCJ+kfYNmV9rMrGoa5Hgy2/wVDBMLSUDudul2/9ihA==}
+    engines: {pnpm: ^7.0.0}
+    dev: false
 
   /ci-info/3.4.0:
     resolution: {integrity: sha512-t5QdPT5jq3o262DOQ8zA6E1tlH2upmUc4Hlvrbx1pGYJuiiHl7O7rvVNI+l8HTVhd/q3Qc9vqimkNk5yiXsAug==}

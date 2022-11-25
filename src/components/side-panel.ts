@@ -1,5 +1,4 @@
 import { startSidePanelAnimation } from '$animations/animation';
-import { sidePanelFadeOut } from '$animations/fade';
 import { settings } from '$global/settings';
 import '$styles/side-panel.css';
 
@@ -10,30 +9,18 @@ const sidePanel = (function () {
   return {
     init: function () {
       const sidePanels = document.querySelectorAll(attributes.component);
-      sidePanels.forEach((sidePanel) => {
-        const component = sidePanel as HTMLElement;
-        const buttons = component.querySelectorAll(attributes.hide) as NodeList;
+      sidePanels.forEach((item) => {
+        const sidePanel = item as HTMLElement;
+        const closeButtons = sidePanel.querySelectorAll(attributes.hide) as NodeList;
 
-        const triggerAttribute = component.getAttribute(global.co_trigger);
-        const triggerElement = document.querySelectorAll(
-          `[${global.co_trigger}="${triggerAttribute}"]`
+        const triggers = document.querySelectorAll(
+          `[${global.co_trigger}="${sidePanel.getAttribute(global.co_trigger)}"]`
         );
 
-        triggerElement.forEach((trigger) => {
-          if (trigger.getAttribute(global.co_element) === settings.components.sidePanel) {
-            const card = component.firstChild as HTMLElement;
-
-            trigger.addEventListener('click', function () {
-              sidePanelFadeOut(component);
-            });
-            if (!card) return;
-            card.addEventListener('click', function (e) {
-              e.stopPropagation();
-            });
-            return;
-          }
+        triggers.forEach((trigger) => {
+          if (trigger.getAttribute(global.co_element) === 'side-panel') return;
           trigger.addEventListener('click', function () {
-            startSidePanelAnimation(component, buttons);
+            startSidePanelAnimation(sidePanel, closeButtons);
           });
         });
       });

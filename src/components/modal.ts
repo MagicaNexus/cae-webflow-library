@@ -1,5 +1,4 @@
 import { startModalAnimation } from '$animations/animation';
-import { modalFadeOut } from '$animations/fade';
 import { settings } from '$global/settings';
 import '$styles/modal.css';
 
@@ -10,35 +9,31 @@ const modal = (function () {
   return {
     init: function () {
       const modals = document.querySelectorAll(attributes.component);
-      modals.forEach((modal) => {
-        const component = modal as HTMLElement;
-        const buttons = component.querySelectorAll(attributes.hide) as NodeList;
+      modals.forEach((item) => {
+        const modal = item as HTMLElement;
 
-        const triggerAttribute = component.getAttribute(global.co_trigger);
-        const triggerElement = document.querySelectorAll(
-          `[${global.co_trigger}="${triggerAttribute}"]`
+        // Get all the buttons that close the modal
+        const closeButtons = modal.querySelectorAll(attributes.hide) as NodeList;
+
+        //List all the elements that trigger the modal
+        const triggers = document.querySelectorAll(
+          `[${global.co_trigger}="${modal.getAttribute(global.co_trigger)}"]`
         );
 
-        triggerElement.forEach((trigger) => {
-          if (trigger.getAttribute(global.co_element) === settings.components.modal) {
-            const card = component.firstChild as HTMLElement;
-
+        triggers.forEach((trigger) => {
+          if (!isModal(trigger)) {
             trigger.addEventListener('click', function () {
-              modalFadeOut(component);
+              startModalAnimation(modal, closeButtons);
             });
-            if (!card) return;
-            card.addEventListener('click', function (e) {
-              e.stopPropagation();
-            });
-            return;
           }
-          trigger.addEventListener('click', function () {
-            startModalAnimation(component, buttons);
-          });
         });
       });
     },
   };
+
+  function isModal(element: Element) {
+    return element.getAttribute(global.co_element) === 'modal';
+  }
 })();
 
 // Initialize the component
