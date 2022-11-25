@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.5.17
+
+### Patch Changes
+
+- e3cba69: Adding charts and pilot experience project
+
 ## 1.5.16
 
 ### Patch Changes
