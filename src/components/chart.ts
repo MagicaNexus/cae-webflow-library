@@ -8,8 +8,8 @@ const component = (function () {
   const { global } = settings.attributes;
 
   const chartColors = [
-    colors.blue.blue06,
     colors.blue.blue04,
+    colors.blue.blue06,
     colors.blue.blue03,
     colors.blue.blue05,
     colors.blue.blue07,
@@ -58,6 +58,7 @@ const component = (function () {
           maintainAspectRatio: false,
           categoryPercentage: 0.2,
           barPercentage: 1,
+          indexAxis: getAxis(component),
           scales: {
             x: {
               display: true,
@@ -155,6 +156,10 @@ function getData(component: HTMLElement): string[] {
 function getLabels(component: HTMLElement): string[] {
   const labels = component.getAttribute('chart-label')?.split(',') as string[];
   return labels.map((s) => s.trim());
+}
+
+function getAxis(component: HTMLElement): string {
+  return component.getAttribute('chart-axis') as string;
 }
 
 function createChart(
