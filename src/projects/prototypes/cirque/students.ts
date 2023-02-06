@@ -78,7 +78,7 @@ function populateStudents(mode: string, data: any, clientData: any, gradeData: a
     dataCount.push(count);
 
     // truncate the label if it is more than 20 characters and add ellipsis and push to dataLabels anyway
-    if (newLabel.length > 25) {
+    if (newLabel.length > 1000) {
       dataLabels.push(newLabel.substring(0, 25) + '...');
     }
     // if the label is less than 20 characters, push it to dataLabels

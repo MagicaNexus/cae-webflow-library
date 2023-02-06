@@ -8,6 +8,7 @@ emptyDiv.remove();
 function addEmpty(list: Element) {
   const empty = emptyDiv.cloneNode(true) as HTMLElement;
   list.appendChild(empty);
+  list.classList.add('empty');
 }
 
 const platform = document.querySelector('[cirque="platform"]') as HTMLElement;
@@ -30,8 +31,18 @@ function populateSessions(mode: string, data: any) {
   const list = element.querySelector('[cirque="list"]') as HTMLElement;
   const item = list.querySelector('[cirque="item"]') as HTMLElement;
   const chart = element.querySelector('[cirque="chart-' + mode + '"]') as HTMLElement;
+  const viewAll = element.querySelector('[co-trigger="' + mode + '"]') as HTMLElement;
 
   item.remove();
+
+  console.log(data.length);
+
+  // Remove the view all button if there are less than 3 items
+  if (data.length < 3) {
+    viewAll.remove();
+  } else {
+    if (viewAll != null) viewAll.innerHTML = 'View All (' + data.length + ')';
+  }
 
   if (data.length === 0) {
     addEmpty(list);
@@ -75,7 +86,6 @@ function populateSessions(mode: string, data: any) {
       }
       list.appendChild(newItem);
     }
-    console.log(dataCount, dataLabels);
     createChart(chart, dataCount.toString(), dataLabels.toString(), name);
   });
 }

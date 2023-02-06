@@ -45,3 +45,7 @@ aside .darkmode--activated
 {
   background-color: #1e1e1e !important;
 }
+
+.w-dropdown {
+  z-index: 50;
+}

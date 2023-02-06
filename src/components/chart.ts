@@ -3,6 +3,8 @@ import Chart from 'chart.js/auto';
 import { colors } from '$global/colors';
 import { settings } from '$global/settings';
 
+Chart.defaults.font.family = 'Red Hat Text';
+
 const component = (function () {
   const attributes = settings.attributes.chart;
   const { global } = settings.attributes;
@@ -42,6 +44,7 @@ const component = (function () {
           data: number[];
           borderColor: string;
           backgroundColor: string;
+          barThickness: number;
         }[] = [];
 
         data.forEach((element, index) => {
@@ -50,6 +53,7 @@ const component = (function () {
             data: element.split(',').map((x) => parseFloat(x)),
             borderColor: chartColors[index],
             backgroundColor: chartColors[index],
+            barThickness: 16,
           });
         });
 
@@ -61,19 +65,39 @@ const component = (function () {
           indexAxis: getAxis(component),
           scales: {
             x: {
+              beforeUpdate(axis: any) {
+                const { labels } = axis.chart.data;
+                for (let i = 0; i < labels.length; i++) {
+                  const lbl = labels[i];
+                  if (typeof lbl === 'string' && lbl.length > 25) {
+                    labels[i] = lbl.substring(0, 25); // cutting
+                  }
+                }
+              },
+              ticks: {
+                font: {
+                  size: getAxis(component) === 'x' ? 16 : 12,
+                },
+              },
               display: true,
               drawOnChartArea: false,
               drawTicks: false,
               grid: {
-                display: false,
+                display: true,
+                color: getAxis(component) === 'x' ? '#fff' : colors.neutral.neutral09,
               },
             },
             y: {
               beginAtZero: false,
               offset: true,
               grid: {
-                color: colors.neutral.neutral02,
+                color: getAxis(component) === 'x' ? colors.neutral.neutral02 : '#fff',
                 display: true,
+              },
+              ticks: {
+                font: {
+                  size: getAxis(component) === 'y' ? 16 : 12,
+                },
               },
             },
           },
@@ -84,6 +108,15 @@ const component = (function () {
 
             tooltip: {
               enabled: true,
+              /*titleFont: {
+                size: 8,
+              },*/
+              callbacks: {
+                label: function (context: any) {
+                  const label = context.dataset.label || '';
+                  return label;
+                },
+              },
             },
           },
         };
@@ -115,15 +148,14 @@ const component = (function () {
             legend: {
               display: false,
             },
-          },
-          tooltip: {
-            enabled: true,
+            tooltip: {
+              enabled: true,
+            },
           },
           title: {
             display: false,
           },
         };
-
         createChart(canvas, datasets, legend, options, 'doughnut');
       }
     },

@@ -125,9 +125,11 @@ function setFullScreen() {
     ) as HTMLElement;
 
     const instructorChartData = instructors.map((instructor) => instructor.counts);
+    const instructorNames = instructors.map((instructor) => instructor.instructor_name);
     const chart = tab.querySelector('[cirque="instructor_chart"]') as HTMLElement;
 
     chart.setAttribute('chart-data', instructorChartData.toString());
+    chart.setAttribute('chart-legend', instructorNames.toString());
 
     instructorItem.remove();
     instructors.forEach((instructor, index) => {
@@ -162,34 +164,34 @@ const geojson = {
       type: 'Feature',
       geometry: {
         type: 'Point',
-        coordinates: [-80.191788, 25.761681],
+        coordinates: [77.209, 28.6139],
       },
       properties: {
-        title: 'miami',
-        description: 'Miami, FL',
+        title: 'newdelhi',
+        description: 'New Delhi, India',
       },
-    },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [-112.074, 33.448376],
-      },
-      properties: {
-        title: 'phoenix',
-        description: 'Phoenix, AZ',
-      },
-    },
-    {
-      type: 'Feature',
-      geometry: {
-        type: 'Point',
-        coordinates: [-122.335167, 47.608013],
-      },
-      properties: {
-        title: 'seattle',
-        description: 'Seattle, WA',
-      },
+      // },
+      // {
+      //   type: 'Feature',
+      //   geometry: {
+      //     type: 'Point',
+      //     coordinates: [-112.074, 33.448376],
+      //   },
+      //   properties: {
+      //     title: 'phoenix',
+      //     description: 'Phoenix, AZ',
+      //   },
+      // },
+      // {
+      //   type: 'Feature',
+      //   geometry: {
+      //     type: 'Point',
+      //     coordinates: [-122.335167, 47.608013],
+      //   },
+      //   properties: {
+      //     title: 'seattle',
+      //     description: 'Seattle, WA',
+      //   },
     },
   ],
 };
@@ -199,8 +201,8 @@ mapboxgl.accessToken =
 const map = new mapboxgl.Map({
   container: 'map-container',
   style: 'mapbox://styles/nik-bibiche/claiks71n001o15qobrj84ddy', // style URL
-  center: [-105, 40], // starting position [lng, lat]
-  zoom: 3.5, // starting zoom
+  center: [77.863, 26.738], // starting position [lng, lat]
+  zoom: 4.19, // starting zoom
 });
 
 const size = 100;
