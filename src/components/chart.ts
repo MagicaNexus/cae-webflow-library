@@ -23,13 +23,19 @@ const component = (function () {
       document.querySelectorAll(attributes.component).forEach((trigger) => {
         const component: HTMLElement = trigger as HTMLElement;
 
-        if (component.getAttribute(global.fieldType) === 'bar') {
-          createBarChart(component);
-        }
+        // if (component.hasAttribute('has-data') === true) {
+        //   return;
+        // }
 
-        if (component.getAttribute(global.fieldType) === 'doughnut') {
-          createDoughnutChart(component);
-        }
+        setTimeout(() => {
+          if (component.getAttribute(global.fieldType) === 'bar') {
+            createBarChart(component);
+          }
+
+          if (component.getAttribute(global.fieldType) === 'doughnut') {
+            createDoughnutChart(component);
+          }
+        }, 1500);
       });
 
       function createBarChart(component: HTMLElement) {
@@ -187,7 +193,11 @@ function getData(component: HTMLElement): string[] {
 
 function getLabels(component: HTMLElement): string[] {
   const labels = component.getAttribute('chart-label')?.split(',') as string[];
-  return labels.map((s) => s.trim());
+  try {
+    return labels.map((s) => s.trim());
+  } catch (error) {
+    return [];
+  }
 }
 
 function getAxis(component: HTMLElement): string {

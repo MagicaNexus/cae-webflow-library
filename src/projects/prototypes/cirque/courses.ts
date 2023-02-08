@@ -1,6 +1,35 @@
-import json from './database.json';
+import { getData } from './utils/functions';
 
-const data = json.courses;
+const platform = document.querySelector('[cirque="platform"]') as HTMLElement;
+const coursePeriod = document.querySelector('[cirque="course_period"]') as HTMLElement;
+const tabName = document.querySelector('[cirque="tab-name"]') as HTMLElement;
+
+async function main() {
+  const allData = await getData();
+  const data = allData.courses;
+
+  if (coursePeriod != null) coursePeriod.innerHTML = data[0].training_cycle;
+  if (platform != null) platform.innerHTML = data[0].platform + ' ' + data[0].training_program;
+  if (tabName != null) tabName.innerHTML = data[0].training_center;
+
+  populateBehaviour([
+    data[0].content.top_developmental_ob,
+    data[0].content.top_positive_ob,
+    data[0].content.ob_by_session,
+  ]);
+  populateSessions('repeat', data[0].content.top_repeated_objectives);
+  populateSessions('skipped', data[0].content.top_skipped_objectives);
+  populateSessions('incomplete', data[0].content.top_incomplete_sessions);
+  populateSessions('unsatisfactory', data[0].content.top_unsatisfactory_sessions);
+  populateStudents('problems', data[0].content.problematic_objectives_students_involved);
+  populateStudents('exceedances', data[0].content.highest_rate_of_exceedances);
+
+  getRepeatedObjectives(data);
+}
+
+main().catch((error) => {
+  console.error(error);
+});
 
 const emptyDiv = document.querySelector('[cirque="empty"]') as HTMLElement;
 emptyDiv.remove();
@@ -9,26 +38,6 @@ function addEmpty(list: Element) {
   const empty = emptyDiv.cloneNode(true) as HTMLElement;
   list.appendChild(empty);
 }
-
-const platform = document.querySelector('[cirque="platform"]') as HTMLElement;
-const coursePeriod = document.querySelector('[cirque="course_period"]') as HTMLElement;
-const tabName = document.querySelector('[cirque="tab-name"]') as HTMLElement;
-
-if (coursePeriod != null) coursePeriod.innerHTML = data[0].training_cycle;
-if (platform != null) platform.innerHTML = data[0].platform + ' ' + data[0].training_program;
-if (tabName != null) tabName.innerHTML = data[0].training_center;
-
-populateBehaviour([
-  data[0].content.top_developmental_ob,
-  data[0].content.top_positive_ob,
-  data[0].content.ob_by_session,
-]);
-populateSessions('repeat', data[0].content.top_repeated_objectives);
-populateSessions('skipped', data[0].content.top_skipped_objectives);
-populateSessions('incomplete', data[0].content.top_incomplete_sessions);
-populateSessions('unsatisfactory', data[0].content.top_unsatisfactory_sessions);
-populateStudents('problems', data[0].content.problematic_objectives_students_involved);
-populateStudents('exceedances', data[0].content.highest_rate_of_exceedances);
 
 function populateStudents(mode: string, data: any) {
   const chart = document.querySelector('[cirque="' + mode + '"]') as HTMLElement;
@@ -166,9 +175,7 @@ function populateBehaviour(data: any) {
   });
 }
 
-getRepeatedObjectives();
-
-function getRepeatedObjectives() {
+function getRepeatedObjectives(data: any) {
   const element = document.querySelector('[cirque="repeated"]') as HTMLElement;
   const list = element.querySelector('[cirque="list"]') as HTMLElement;
   const item = list.querySelector('[cirque="item"]') as HTMLElement;
@@ -176,7 +183,7 @@ function getRepeatedObjectives() {
 
   item.remove();
   if (allData.length > 0) {
-    allData.forEach((data) => {
+    allData.forEach((data: any) => {
       const newItem = item.cloneNode(true) as HTMLElement;
       if (newItem !== undefined) {
         const session = newItem.querySelector('[cirque="session"]') as HTMLElement;

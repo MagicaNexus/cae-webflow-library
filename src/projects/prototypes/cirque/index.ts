@@ -1,6 +1,7 @@
+// JavaScript
 import { colors } from '$global/colors';
 
-import json from './database.json';
+import { getData } from './utils/functions';
 
 const chartColors = [
   colors.blue.blue06,
@@ -11,6 +12,17 @@ const chartColors = [
   colors.blue.blue08,
 ];
 
+async function main() {
+  const data = await getData();
+
+  setSummary(data);
+  setFullScreen(data);
+}
+
+main().catch((error) => {
+  console.error(error);
+});
+
 const emptyDiv = document.querySelector('[cirque="empty"]') as HTMLElement;
 emptyDiv.remove();
 
@@ -19,16 +31,13 @@ function addEmpty(list: HTMLElement) {
   list.appendChild(empty);
 }
 
-setSummary();
-setFullScreen();
-
-function setSummary() {
+function setSummary(json: any) {
   const data = json.homepage_summary[0].summary;
   const summaryList = document.querySelector('[cirque="summary_list"]') as HTMLElement;
   const summaryItem = summaryList.querySelector('[cirque="summary_item"]') as HTMLElement;
   summaryItem.remove();
   if (data.length > 0) {
-    data.forEach((center) => {
+    data.forEach((center: any) => {
       const newItem = summaryItem.cloneNode(true) as HTMLElement;
       if (newItem !== undefined) {
         const location = newItem.querySelector('[cirque="location"]');
@@ -48,7 +57,7 @@ function setSummary() {
   }
 }
 
-function setFullScreen() {
+function setFullScreen(json: any) {
   const tabs = document.querySelector('[cirque="tabs"]') as HTMLElement;
   const tab = document.querySelector('[cirque="tab"]') as HTMLElement;
   const data = json.homepage_fullscreen;
@@ -75,7 +84,7 @@ function setFullScreen() {
     const courseItem = courseList.querySelector('[cirque="course_item"]') as HTMLElement;
     courseItem.remove();
     if (courses.length > 0) {
-      courses.forEach((course) => {
+      courses.forEach((course: any) => {
         const newItem = courseItem.cloneNode(true) as HTMLElement;
         if (newItem !== undefined) {
           const courseName = newItem.querySelector('[cirque="course_name"]') as HTMLElement;
@@ -101,7 +110,7 @@ function setFullScreen() {
     const maneuverItem = maneuverList.querySelector('[cirque="maneuver_item"]') as HTMLElement;
 
     maneuverItem.remove();
-    maneuvers.forEach((maneuver, index) => {
+    maneuvers.forEach((maneuver: any, index: any) => {
       if (index > 4) return;
       const newItem = maneuverItem.cloneNode(true) as HTMLElement;
       if (newItem !== undefined) {
@@ -124,15 +133,15 @@ function setFullScreen() {
       '[cirque="instructor_item"]'
     ) as HTMLElement;
 
-    const instructorChartData = instructors.map((instructor) => instructor.counts);
-    const instructorNames = instructors.map((instructor) => instructor.instructor_name);
+    const instructorChartData = instructors.map((instructor: any) => instructor.counts);
+    const instructorNames = instructors.map((instructor: any) => instructor.instructor_name);
     const chart = tab.querySelector('[cirque="instructor_chart"]') as HTMLElement;
 
     chart.setAttribute('chart-data', instructorChartData.toString());
     chart.setAttribute('chart-legend', instructorNames.toString());
 
     instructorItem.remove();
-    instructors.forEach((instructor, index) => {
+    instructors.forEach((instructor: any, index: any) => {
       if (index > 3) return;
       const newItem = instructorItem.cloneNode(true) as HTMLElement;
       if (newItem !== undefined) {

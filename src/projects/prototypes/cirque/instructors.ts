@@ -1,6 +1,31 @@
-import json from './database.json';
+import { getData } from './utils/functions';
 
-const data = json.instructors;
+const platform = document.querySelector('[cirque="platform"]') as HTMLElement;
+const coursePeriod = document.querySelector('[cirque="course_period"]') as HTMLElement;
+const tabName = document.querySelector('[cirque="tab-name"]') as HTMLElement;
+const pilotNumber = document.querySelector('[cirque="student-number"]') as HTMLElement;
+
+async function main() {
+  const allData = await getData();
+  const data = allData.instructors;
+
+  if (pilotNumber != null)
+    pilotNumber.innerHTML = data[0].content.pilots_failed_sessions.toString();
+
+  if (coursePeriod != null) coursePeriod.innerHTML = data[0].training_cycle;
+  if (platform != null) platform.innerHTML = data[0].platform + ' ' + data[0].training_program;
+  if (tabName != null) tabName.innerHTML = data[0].training_center;
+
+  populateSessions('most-repeat', data[0].content.most_in_session_repeats);
+  populateSessions('exceedances', data[0].content.exceedance_per_instructor);
+  populateSessions('repeats', data[0].content.repeats_per_instructor);
+  getRepeatedObjectives('without-exceedance', data[0].content.maneuver_wo_exceedance_w_fail);
+  getRepeatedObjectives('with-exceedance', data[0].content.maneuver_w_exceedance_wo_fail);
+}
+
+main().catch((error) => {
+  console.error(error);
+});
 
 const emptyDiv = document.querySelector('[cirque="empty"]') as HTMLElement;
 emptyDiv.remove();
@@ -10,21 +35,6 @@ function addEmpty(list: Element) {
   list.appendChild(empty);
   list.classList.add('empty');
 }
-
-const platform = document.querySelector('[cirque="platform"]') as HTMLElement;
-const coursePeriod = document.querySelector('[cirque="course_period"]') as HTMLElement;
-const tabName = document.querySelector('[cirque="tab-name"]') as HTMLElement;
-const pilotNumber = document.querySelector('[cirque="student-number"]') as HTMLElement;
-
-if (pilotNumber != null) pilotNumber.innerHTML = data[0].content.pilots_failed_sessions.toString();
-
-if (coursePeriod != null) coursePeriod.innerHTML = data[0].training_cycle;
-if (platform != null) platform.innerHTML = data[0].platform + ' ' + data[0].training_program;
-if (tabName != null) tabName.innerHTML = data[0].training_center;
-
-populateSessions('most-repeat', data[0].content.most_in_session_repeats);
-populateSessions('exceedances', data[0].content.exceedance_per_instructor);
-populateSessions('repeats', data[0].content.repeats_per_instructor);
 
 function populateSessions(mode: string, data: any) {
   const element = document.querySelector('[cirque="' + mode + '"]') as HTMLElement;
@@ -89,9 +99,6 @@ function populateSessions(mode: string, data: any) {
     createChart(chart, dataCount.toString(), dataLabels.toString(), name);
   });
 }
-
-getRepeatedObjectives('without-exceedance', data[0].content.maneuver_wo_exceedance_w_fail);
-getRepeatedObjectives('with-exceedance', data[0].content.maneuver_w_exceedance_wo_fail);
 
 function getRepeatedObjectives(mode: string, allData: any) {
   const element = document.querySelector('[cirque="' + mode + '"]') as HTMLElement;
