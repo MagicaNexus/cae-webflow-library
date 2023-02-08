@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.6.2
+
+### Patch Changes
+
+- 18cf36b: Adding Azure Cosmo DB
+
 ## 1.6.1
 
 ### Patch Changes
