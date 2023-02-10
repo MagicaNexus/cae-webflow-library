@@ -27,15 +27,13 @@ const component = (function () {
         //   return;
         // }
 
-        setTimeout(() => {
-          if (component.getAttribute(global.fieldType) === 'bar') {
-            createBarChart(component);
-          }
+        if (component.getAttribute(global.fieldType) === 'bar') {
+          createBarChart(component);
+        }
 
-          if (component.getAttribute(global.fieldType) === 'doughnut') {
-            createDoughnutChart(component);
-          }
-        }, 1500);
+        if (component.getAttribute(global.fieldType) === 'doughnut') {
+          createDoughnutChart(component);
+        }
       });
 
       function createBarChart(component: HTMLElement) {
@@ -196,6 +194,7 @@ function getLabels(component: HTMLElement): string[] {
   try {
     return labels.map((s) => s.trim());
   } catch (error) {
+    console.log('error', error);
     return [];
   }
 }

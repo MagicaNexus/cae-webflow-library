@@ -40,8 +40,11 @@ function addEmpty(list: Element) {
 }
 
 function populateStudents(mode: string, data: any) {
-  const chart = document.querySelector('[cirque="' + mode + '"]') as HTMLElement;
+  const element = document.querySelector('[cirque="' + mode + '"]') as HTMLElement;
+  const chart = element.querySelector('[cirque="chart-' + mode + '"]') as HTMLElement;
+  const chart2 = element.querySelector('[cirque="chart2-' + mode + '"]') as HTMLElement;
   const allData = JSON.parse(data);
+  const viewAll = element.querySelector('[co-trigger="' + mode + '"]') as HTMLElement;
 
   const clientFullName = Object.entries(allData.client_fullName);
   const taskGrades = Object.entries(allData.taskGrades_name);
@@ -55,6 +58,12 @@ function populateStudents(mode: string, data: any) {
   clientFullName.forEach((data, index) => {
     newArray.push([data[1], taskGrades[index][1]]);
   });
+
+  if (newArray.length < 3) {
+    viewAll.remove();
+  } else {
+    if (viewAll != null) viewAll.innerHTML = 'View All (' + newArray.length + ')';
+  }
 
   // sort newArray by key
   newArray.sort((a, b) => {
@@ -70,28 +79,42 @@ function populateStudents(mode: string, data: any) {
 
   const dataCount: number[] = [];
   const dataLabels: string[] = [];
+  const dataCount2: number[] = [];
+  const dataLabels2: string[] = [];
 
   newArray.forEach((data, index) => {
-    if (index > 2) return;
     const count = data[0] as number;
     const label = data[1] as string;
 
     // remove all "," from label
     const newLabel = label.replace(',', '');
 
-    dataCount.push(count);
+    if (index <= 2) {
+      dataCount.push(count);
+
+      // truncate the label if it is more than 20 characters and add ellipsis and push to dataLabels anyway
+      if (newLabel.length > 25) {
+        dataLabels.push(newLabel.substring(0, 25) + '...');
+      }
+      // if the label is less than 20 characters, push it to dataLabels
+      else {
+        dataLabels.push(newLabel);
+      }
+    }
+
+    dataCount2.push(count);
 
     // truncate the label if it is more than 20 characters and add ellipsis and push to dataLabels anyway
     if (newLabel.length > 25) {
-      dataLabels.push(newLabel.substring(0, 25) + '...');
+      dataLabels2.push(newLabel.substring(0, 25) + '...');
     }
     // if the label is less than 20 characters, push it to dataLabels
     else {
-      dataLabels.push(newLabel);
+      dataLabels2.push(newLabel);
     }
   });
-
   createChart(chart, dataCount.toString(), dataLabels.toString(), 'Sessions');
+  createChart(chart2, dataCount2.toString(), dataLabels2.toString(), 'Sessions');
 }
 
 function populateSessions(mode: string, data: any) {

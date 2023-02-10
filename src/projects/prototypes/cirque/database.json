@@ -1,22 +1,38 @@
 {
     "id": "Boeing",
     "name": "Boeing",
-    "training_cycles": [
-        "Jul 01, 2022 → Dec 31, 2022"
+    "training_courses": [
+        "Course2",
+        "Course1"
     ],
     "training_programs": [
         {
-            "training_cycle": "Jul 01, 2022 → Dec 31, 2022",
+            "course_name": "Course2",
             "platform": "737MAX",
             "training_program": [
-                "Initial Training"
+                "Initial"
+            ]
+        },
+        {
+            "course_name": "Course1",
+            "platform": "737MAX",
+            "training_program": [
+                "Initial"
             ]
         }
     ],
     "training_centers": [
         {
-            "training_cycle": "Jul 01, 2022 → Dec 31, 2022",
-            "training_program": "Initial Training",
+            "course_name": "Course2",
+            "training_program": "Initial",
+            "platform": "737MAX",
+            "training_center": [
+                "CAE New Delhi"
+            ]
+        },
+        {
+            "course_name": "Course1",
+            "training_program": "Initial",
             "platform": "737MAX",
             "training_center": [
                 "CAE New Delhi"
@@ -25,7 +41,13 @@
     ],
     "platforms": [
         {
-            "training_cycle": "Jul 01, 2022 → Dec 31, 2022",
+            "course_name": "Course2",
+            "platform": [
+                "737MAX"
+            ]
+        },
+        {
+            "course_name": "Course1",
             "platform": [
                 "737MAX"
             ]
@@ -33,8 +55,21 @@
     ],
     "homepage_summary": [
         {
-            "training_cycle": "Jul 01, 2022 → Dec 31, 2022",
-            "training_program": "Initial Training",
+            "course_name": "Course2",
+            "training_program": "Initial",
+            "platform": "737MAX",
+            "summary": [
+                {
+                    "location": "CAE New Delhi",
+                    "students": 15,
+                    "instructors": 4,
+                    "courses": 1
+                }
+            ]
+        },
+        {
+            "course_name": "Course1",
+            "training_program": "Initial",
             "platform": "737MAX",
             "summary": [
                 {
@@ -48,30 +83,31 @@
     ],
     "homepage_fullscreen": [
         {
-            "training_cycle": "Jul 01, 2022 → Dec 31, 2022",
-            "training_program": "Initial Training",
+            "course_name": "Course2",
+            "training_program": "Initial",
             "platform": "737MAX",
             "training_center": "CAE New Delhi",
             "content": {
                 "progress": {
-                    "sessions": 31,
+                    "sessions": 30,
                     "students": 15
                 },
                 "courses": [
                     {
+                        "session_name": "UnitName Test #1",
+                        "percent_failed": 28,
+                        "num_of_sessions": 25
+                    },
+                    {
                         "session_name": "UnitName Test #0",
-                        "percent_failed": 32.3,
-                        "num_of_sessions": 31
+                        "percent_failed": 26.9,
+                        "num_of_sessions": 26
                     }
                 ],
                 "maneuvers": [
                     {
                         "task_name": "Preflight Procedures",
                         "avg_grade": 1
-                    },
-                    {
-                        "task_name": "Take-off - Crosswind, BA Medium",
-                        "avg_grade": 2
                     },
                     {
                         "task_name": "Approach - Circling",
@@ -82,15 +118,7 @@
                         "avg_grade": 3
                     },
                     {
-                        "task_name": "Landing - Normal",
-                        "avg_grade": 3
-                    },
-                    {
-                        "task_name": "Landing - Two engines inoperative, Contaminated RWY",
-                        "avg_grade": 3
-                    },
-                    {
-                        "task_name": "Landing - Crosswind",
+                        "task_name": "Grade 2",
                         "avg_grade": 3
                     },
                     {
@@ -98,7 +126,7 @@
                         "avg_grade": 3
                     },
                     {
-                        "task_name": "Engine Start",
+                        "task_name": "Landing - Two engines inoperative, Contaminated RWY",
                         "avg_grade": 3
                     },
                     {
@@ -106,35 +134,7 @@
                         "avg_grade": 3
                     },
                     {
-                        "task_name": "Approach - 3D (ILS), Manually, With FD",
-                        "avg_grade": 3
-                    },
-                    {
-                        "task_name": "Special training for First Officers",
-                        "avg_grade": 3
-                    },
-                    {
-                        "task_name": "Before Take-off Checks",
-                        "avg_grade": 3
-                    },
-                    {
-                        "task_name": "Take-off - Crosswind",
-                        "avg_grade": 3
-                    },
-                    {
-                        "task_name": "Taxiing",
-                        "avg_grade": 3
-                    },
-                    {
-                        "task_name": "Take-off - Max crosswind",
-                        "avg_grade": 3
-                    },
-                    {
-                        "task_name": "Take-off - Engine fire  between V1 and V2",
-                        "avg_grade": 3
-                    },
-                    {
-                        "task_name": "ABNORMAL ENGINE START",
+                        "task_name": "Landing - Crosswind",
                         "avg_grade": 3
                     },
                     {
@@ -142,7 +142,7 @@
                         "avg_grade": 3
                     },
                     {
-                        "task_name": "Landing - Two engines inoperative",
+                        "task_name": "Taxiing",
                         "avg_grade": 3
                     },
                     {
@@ -150,87 +150,71 @@
                         "avg_grade": 3
                     },
                     {
-                        "task_name": "After Landing Procedures - Taxi-in",
+                        "task_name": "Take-off - Engine fire  between V1 and V2",
                         "avg_grade": 3
                     },
                     {
-                        "task_name": "Take-off - Normal",
-                        "avg_grade": 3.466666666666667
+                        "task_name": "Take-off - Max crosswind",
+                        "avg_grade": 3
                     },
                     {
-                        "task_name": "Landing - LVO",
-                        "avg_grade": 3.6
+                        "task_name": "ABNORMAL ENGINE START",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Take-off - Crosswind",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Before Take-off Checks",
+                        "avg_grade": 3
                     },
                     {
                         "task_name": "Landing - One engine inoperative",
-                        "avg_grade": 3.6153846153846154
-                    },
-                    {
-                        "task_name": "Grade 2",
-                        "avg_grade": 3.625
-                    },
-                    {
-                        "task_name": "Grade 1",
-                        "avg_grade": 3.625
-                    },
-                    {
-                        "task_name": "Communication",
-                        "avg_grade": 3.6363636363636362
+                        "avg_grade": 3.4285714285714284
                     },
                     {
                         "task_name": "Preliminary Preflight Procedures",
-                        "avg_grade": 3.6363636363636362
-                    },
-                    {
-                        "task_name": "Before Start Procedures",
-                        "avg_grade": 3.75
-                    },
-                    {
-                        "task_name": "Perform Before Taxi Procedure",
-                        "avg_grade": 3.8333333333333335
-                    },
-                    {
-                        "task_name": "After Landing Procedures - Shutdown",
-                        "avg_grade": 3.8333333333333335
-                    },
-                    {
-                        "task_name": "Perform Mode Control Panel (MCP) Operations",
-                        "avg_grade": 3.857142857142857
-                    },
-                    {
-                        "task_name": "Before Takeoff Procedure",
-                        "avg_grade": 3.857142857142857
+                        "avg_grade": 3.5
                     },
                     {
                         "task_name": "Airplane Pushback or Tow Out Procedure",
-                        "avg_grade": 3.857142857142857
+                        "avg_grade": 3.5
                     },
                     {
-                        "task_name": "Engine Start Procedure (ground start)",
-                        "avg_grade": 3.857142857142857
+                        "task_name": "Grade 1",
+                        "avg_grade": 3.5
                     },
                     {
-                        "task_name": "Approach - 3D (RNP), With AP, To LPV minima",
-                        "avg_grade": 3.875
+                        "task_name": "Take-off - Normal",
+                        "avg_grade": 3.5714285714285716
                     },
                     {
-                        "task_name": "Landing - LVO, Min authorized RVR / Crosswind",
-                        "avg_grade": 3.875
+                        "task_name": "Communication",
+                        "avg_grade": 3.7142857142857144
                     },
                     {
                         "task_name": "Preflight Procedure - Captain",
-                        "avg_grade": 3.9
+                        "avg_grade": 3.8
+                    },
+                    {
+                        "task_name": "Before Takeoff Procedure",
+                        "avg_grade": 3.8
+                    },
+                    {
+                        "task_name": "Perform Mode Control Panel (MCP) Operations",
+                        "avg_grade": 3.8
+                    },
+                    {
+                        "task_name": "Perform Before Taxi Procedure",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Landing - LVO, Min authorized RVR / Crosswind",
+                        "avg_grade": 4
                     },
                     {
                         "task_name": "Preflight Procedure - First Officer",
-                        "avg_grade": 4
-                    },
-                    {
-                        "task_name": "Special training for Captains",
-                        "avg_grade": 4
-                    },
-                    {
-                        "task_name": "Normal After Takeoff Procedure",
                         "avg_grade": 4
                     },
                     {
@@ -238,7 +222,7 @@
                         "avg_grade": 4
                     },
                     {
-                        "task_name": "1. Application of procedures and compliance with regulations",
+                        "task_name": "Normal After Takeoff Procedure",
                         "avg_grade": 4
                     },
                     {
@@ -246,15 +230,19 @@
                         "avg_grade": 4
                     },
                     {
+                        "task_name": "1. Application of procedures and compliance with regulations",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Engine Start Procedure (ground start)",
+                        "avg_grade": 4
+                    },
+                    {
                         "task_name": "2. Communication",
                         "avg_grade": 4
                     },
                     {
-                        "task_name": "4. Flight Path Management – Manual.",
-                        "avg_grade": 4
-                    },
-                    {
-                        "task_name": "5. Leadership and teamwork",
+                        "task_name": "After Landing Procedures - Shutdown",
                         "avg_grade": 4
                     },
                     {
@@ -270,11 +258,23 @@
                         "avg_grade": 4
                     },
                     {
+                        "task_name": "Approach - 3D (ILS), With AP",
+                        "avg_grade": 4
+                    },
+                    {
                         "task_name": "Approach - 3D (ILS), With AP (Final Grade)",
                         "avg_grade": 4
                     },
                     {
-                        "task_name": "Approach - 3D (ILS), With AP",
+                        "task_name": "Landing - LVO",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Approach - 3D (RNP), With AP, To LPV minima",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Before Start Procedures",
                         "avg_grade": 4
                     },
                     {
@@ -294,10 +294,6 @@
                         "avg_grade": 4
                     },
                     {
-                        "task_name": "Various systems abnormals/emergencies",
-                        "avg_grade": 4
-                    },
-                    {
                         "task_name": "Approach - 3D (RNP), With AP, To LPV minima (Final Grade)",
                         "avg_grade": 4
                     },
@@ -307,15 +303,275 @@
                     },
                     {
                         "task_name": "After Landing Procedures",
-                        "avg_grade": 4.125
-                    },
-                    {
-                        "task_name": "Landing - LVO, Min authorized RVR / Crosswind (Final Grade)",
-                        "avg_grade": 4.25
+                        "avg_grade": 4.333333333333333
                     },
                     {
                         "task_name": "Climb",
-                        "avg_grade": 4.5
+                        "avg_grade": 5
+                    },
+                    {
+                        "task_name": "Landing - LVO, Min authorized RVR / Crosswind (Final Grade)",
+                        "avg_grade": 5
+                    }
+                ],
+                "instructors": [
+                    {
+                        "instructor_name": "Taly Tanya Neiman",
+                        "counts": 17,
+                        "total": 30
+                    },
+                    {
+                        "instructor_name": "Noah Rottman",
+                        "counts": 9,
+                        "total": 30
+                    },
+                    {
+                        "instructor_name": "Simon Nguyen",
+                        "counts": 3,
+                        "total": 30
+                    },
+                    {
+                        "instructor_name": "Mamadou Daye Diallo",
+                        "counts": 1,
+                        "total": 30
+                    }
+                ],
+                "grading_drilldown": [
+                    {
+                        "UnitName Test #1": "{\"taskGrades_name\":{\"0\":\"Grade 2\",\"1\":\"Landing\",\"2\":\"ABNORMAL ENGINE START\",\"3\":\"Take-off - Engine fire  between V1 and V2\",\"4\":\"Take-off - Crosswind\",\"5\":\"Aircraft Procedures\",\"6\":\"Landing - Crosswind\",\"7\":\"Preflight Procedures\",\"8\":\"Landing - Two engines inoperative, Contaminated RWY\",\"9\":\"Rejected Take-off\",\"10\":\"Landing - One engine inoperative\",\"11\":\"Take-off - Normal\",\"12\":\"Airplane Pushback or Tow Out Procedure\",\"13\":\"Before Takeoff Procedure\",\"14\":\"Perform Before Taxi Procedure\",\"15\":\"Normal After Takeoff Procedure\",\"16\":\"Preflight Procedure - Captain\",\"17\":\"Preliminary Preflight Procedures\",\"18\":\"Landing - LVO, Min authorized RVR \\/ Crosswind (Final Grade)\",\"19\":\"Landing - LVO, Min authorized RVR \\/ Crosswind\",\"20\":\"Landing - LVO\",\"21\":\"Perform Mode Control Panel (MCP) Operations\",\"22\":\"1. Application of procedures and compliance with regulations\",\"23\":\"Grade 1\",\"24\":\"2. Communication\",\"25\":\"Descend\",\"26\":\"Communication\",\"27\":\"Climb\",\"28\":\"CDU\\/EFB Preflight Procedure\",\"29\":\"Before Start Procedures\",\"30\":\"Approach - 3D (RNP), With AP, To LPV minima (Final Grade)\",\"31\":\"Approach - 3D (RNP), With AP, To LPV minima\",\"32\":\"Approach - 3D (ILS), With AP (Final Grade)\",\"33\":\"Approach - 3D (ILS), With AP\",\"34\":\"Application of Procedures & compliance with regulations\",\"35\":\"Application of Knowledge\",\"36\":\"After Landing Procedures - Shutdown\",\"37\":\"After Landing Procedures\",\"38\":\"Engine Start (Final Grade)\"},\"taskGrades_failed\":{\"0\":100.0,\"1\":100.0,\"2\":100.0,\"3\":100.0,\"4\":100.0,\"5\":100.0,\"6\":100.0,\"7\":100.0,\"8\":100.0,\"9\":80.0,\"10\":50.0,\"11\":50.0,\"12\":50.0,\"13\":25.0,\"14\":0.0,\"15\":0.0,\"16\":0.0,\"17\":0.0,\"18\":0.0,\"19\":0.0,\"20\":0.0,\"21\":0.0,\"22\":0.0,\"23\":0.0,\"24\":0.0,\"25\":0.0,\"26\":0.0,\"27\":0.0,\"28\":0.0,\"29\":0.0,\"30\":0.0,\"31\":0.0,\"32\":0.0,\"33\":0.0,\"34\":0.0,\"35\":0.0,\"36\":0.0,\"37\":0.0,\"38\":0.0}}"
+                    },
+                    {
+                        "UnitName Test #0": "{\"taskGrades_name\":{\"0\":\"Grade 1\",\"1\":\"Take-off - Engine fire  between V1 and V2\",\"2\":\"Go-around - LVO\",\"3\":\"Approach - Circling\",\"4\":\"Stall Recovery\",\"5\":\"Before Take-off Checks\",\"6\":\"Take-off - Max crosswind\",\"7\":\"Taxiing\",\"8\":\"Landing - Crosswind\",\"9\":\"Rejected Take-off\",\"10\":\"Landing - One engine inoperative\",\"11\":\"Preliminary Preflight Procedures\",\"12\":\"Preflight Procedure - Captain\",\"13\":\"Perform Mode Control Panel (MCP) Operations\",\"14\":\"Take-off - Normal\",\"15\":\"Communication\",\"16\":\"Landing - LVO (Final Grade)\",\"17\":\"Preliminary  Preflight Procedures\",\"18\":\"Preflight Procedure - First Officer\",\"19\":\"Normal After Takeoff Procedure\",\"20\":\"Landing - LVO, Min authorized RVR \\/ Crosswind\",\"21\":\"After Landing Procedures\",\"22\":\"Grade 2\",\"23\":\"After Landing Procedures - Shutdown\",\"24\":\"Engine Start Procedure (ground start)\",\"25\":\"Descend\",\"26\":\"CDU\\/EFB Preflight Procedure\",\"27\":\"Before Takeoff Procedure\",\"28\":\"Before Take-off Checks (Final Grade)\",\"29\":\"Before Start Procedures\",\"30\":\"Approach - 3D (RNP), With AP, To LPV minima (Final Grade)\",\"31\":\"Approach - 3D (RNP), With AP, To LPV minima\",\"32\":\"Approach - 3D (ILS), With AP\",\"33\":\"Application of Procedures & compliance with regulations\",\"34\":\"Application of Procedures\",\"35\":\"Application of Knowledge\",\"36\":\"Workload Management\"},\"taskGrades_failed\":{\"0\":100.0,\"1\":100.0,\"2\":100.0,\"3\":100.0,\"4\":100.0,\"5\":100.0,\"6\":100.0,\"7\":100.0,\"8\":100.0,\"9\":66.6666666667,\"10\":66.6666666667,\"11\":50.0,\"12\":50.0,\"13\":50.0,\"14\":40.0,\"15\":33.3333333333,\"16\":0.0,\"17\":0.0,\"18\":0.0,\"19\":0.0,\"20\":0.0,\"21\":0.0,\"22\":0.0,\"23\":0.0,\"24\":0.0,\"25\":0.0,\"26\":0.0,\"27\":0.0,\"28\":0.0,\"29\":0.0,\"30\":0.0,\"31\":0.0,\"32\":0.0,\"33\":0.0,\"34\":0.0,\"35\":0.0,\"36\":0.0}}"
+                    }
+                ],
+                "telemetry_drilldown": [
+                    {
+                        "UnitName Test #0": "{\"taskGrades_name\":{\"1\":\"Take-off - Normal\",\"0\":\"Approach - 3D (RNP), With AP, To LPV minima\"},\"exceedance_state\":{\"1\":50.0,\"0\":0.0}}"
+                    },
+                    {
+                        "UnitName Test #1": "{\"taskGrades_name\":{\"2\":\"Approach - 3D (RNP), With AP, To LPV minima\",\"3\":\"Rejected Take-off\"},\"exceedance_state\":{\"2\":0.0,\"3\":0.0}}"
+                    }
+                ]
+            }
+        },
+        {
+            "course_name": "Course1",
+            "training_program": "Initial",
+            "platform": "737MAX",
+            "training_center": "CAE New Delhi",
+            "content": {
+                "progress": {
+                    "sessions": 31,
+                    "students": 15
+                },
+                "courses": [
+                    {
+                        "session_name": "UnitName Test #0",
+                        "percent_failed": 30,
+                        "num_of_sessions": 30
+                    },
+                    {
+                        "session_name": "UnitName Test #1",
+                        "percent_failed": 25,
+                        "num_of_sessions": 24
+                    }
+                ],
+                "maneuvers": [
+                    {
+                        "task_name": "Approach - Circling",
+                        "avg_grade": 2
+                    },
+                    {
+                        "task_name": "Take-off - Crosswind, BA Medium",
+                        "avg_grade": 2
+                    },
+                    {
+                        "task_name": "Approach - 3D (RNP), With AP, To LPV minima",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Engine Start",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Landing - Two engines inoperative",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Rejected Take-off",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Approach - 3D (ILS), Manually, With FD",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Landing - Normal",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Special training for First Officers",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Take-off - Crosswind",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Aircraft Procedures",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "After Landing Procedures - Taxi-in",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Taxiing",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Stall Recovery",
+                        "avg_grade": 3
+                    },
+                    {
+                        "task_name": "Take-off - Normal",
+                        "avg_grade": 3.375
+                    },
+                    {
+                        "task_name": "Landing - LVO",
+                        "avg_grade": 3.5
+                    },
+                    {
+                        "task_name": "Communication",
+                        "avg_grade": 3.5
+                    },
+                    {
+                        "task_name": "Before Start Procedures",
+                        "avg_grade": 3.625
+                    },
+                    {
+                        "task_name": "Perform Before Taxi Procedure",
+                        "avg_grade": 3.6666666666666665
+                    },
+                    {
+                        "task_name": "Engine Start Procedure (ground start)",
+                        "avg_grade": 3.75
+                    },
+                    {
+                        "task_name": "After Landing Procedures - Shutdown",
+                        "avg_grade": 3.75
+                    },
+                    {
+                        "task_name": "Landing - LVO, Min authorized RVR / Crosswind",
+                        "avg_grade": 3.75
+                    },
+                    {
+                        "task_name": "Landing - One engine inoperative",
+                        "avg_grade": 3.8333333333333335
+                    },
+                    {
+                        "task_name": "Preflight Procedure - Captain",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Preflight Procedure - First Officer",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Normal After Takeoff Procedure",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Landing - LVO, Min authorized RVR / Crosswind (Final Grade)",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Preliminary Preflight Procedures",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Special training for Captains",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Perform Mode Control Panel (MCP) Operations",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Workload Management",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Grade 2",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "4. Flight Path Management – Manual.",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "5. Leadership and teamwork",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "After Landing Procedures",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Airplane Pushback or Tow Out Procedure",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Application of Knowledge",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Application of Procedures",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Application of Procedures & compliance with regulations",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Landing - LVO (Final Grade)",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Approach - 3D (ILS), With AP",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Approach - 3D (RNP), With AP, To LPV minima (Final Grade)",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Before Takeoff Procedure",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "CDU/EFB Preflight Procedure",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Climb",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Descend",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Various systems abnormals/emergencies",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Grade 1",
+                        "avg_grade": 4
+                    },
+                    {
+                        "task_name": "Approach - 3D (ILS), With AP (Final Grade)",
+                        "avg_grade": 4
                     },
                     {
                         "task_name": "3. Flight Path Management – Automation",
@@ -346,12 +602,18 @@
                 ],
                 "grading_drilldown": [
                     {
-                        "UnitName Test #0": "{\"taskGrades_name\":{\"0\":\"Landing - Two engines inoperative, Contaminated RWY\",\"1\":\"Before Take-off Checks\",\"2\":\"Engine Start\",\"3\":\"Preflight Procedures\",\"4\":\"Special training for First Officers\",\"5\":\"Stall Recovery\",\"6\":\"Go-around - LVO\",\"7\":\"Take-off - Crosswind\",\"8\":\"Take-off - Crosswind, BA Medium\",\"9\":\"Take-off - Engine fire  between V1 and V2\",\"10\":\"Landing\",\"11\":\"Aircraft Procedures\",\"12\":\"After Landing Procedures - Taxi-in\",\"13\":\"Landing - Crosswind\",\"14\":\"Take-off - Max crosswind\",\"15\":\"ABNORMAL ENGINE START\",\"16\":\"Landing - Normal\",\"17\":\"Taxiing\",\"18\":\"Landing - Two engines inoperative\",\"19\":\"Approach - Circling\",\"20\":\"Rejected Take-off\",\"21\":\"Approach - 3D (ILS), Manually, With FD\",\"22\":\"Take-off - Normal\",\"23\":\"Landing - One engine inoperative\",\"24\":\"Preliminary Preflight Procedures\",\"25\":\"Grade 1\",\"26\":\"Landing - LVO\",\"27\":\"Communication\",\"28\":\"After Landing Procedures - Shutdown\",\"29\":\"Perform Before Taxi Procedure\",\"30\":\"Airplane Pushback or Tow Out Procedure\",\"31\":\"Engine Start Procedure (ground start)\",\"32\":\"Perform Mode Control Panel (MCP) Operations\",\"33\":\"Before Takeoff Procedure\",\"34\":\"Grade 2\",\"35\":\"Approach - 3D (RNP), With AP, To LPV minima\",\"36\":\"Landing - LVO, Min authorized RVR \\/ Crosswind\",\"37\":\"Preflight Procedure - Captain\",\"38\":\"CDU\\/EFB Preflight Procedure\",\"39\":\"Before Start Procedures\",\"40\":\"Special training for Captains\",\"41\":\"Preliminary  Preflight Procedures\",\"42\":\"Various systems abnormals\\/emergencies\",\"43\":\"Preflight Procedure - First Officer\",\"44\":\"1. Application of procedures and compliance with regulations\",\"45\":\"Normal After Takeoff Procedure\",\"46\":\"Approach - 3D (ILS), With AP\",\"47\":\"3. Flight Path Management \\u2013 Automation\",\"48\":\"4. Flight Path Management \\u2013 Manual.\",\"49\":\"5. Leadership and teamwork\",\"50\":\"After Landing Procedures\",\"51\":\"Application of Knowledge\",\"52\":\"Application of Procedures\",\"53\":\"Application of Procedures & compliance with regulations\",\"54\":\"Approach - 3D (ILS), With AP (Final Grade)\",\"55\":\"Landing - LVO, Min authorized RVR \\/ Crosswind (Final Grade)\",\"56\":\"Approach - 3D (RNP), With AP, To LPV minima (Final Grade)\",\"57\":\"Before Take-off Checks (Final Grade)\",\"58\":\"Climb\",\"59\":\"Descend\",\"60\":\"Engine Start (Final Grade)\",\"61\":\"2. Communication\",\"62\":\"Landing - LVO (Final Grade)\",\"63\":\"Workload Management\"},\"taskGrades_failed\":{\"0\":100.0,\"1\":100.0,\"2\":100.0,\"3\":100.0,\"4\":100.0,\"5\":100.0,\"6\":100.0,\"7\":100.0,\"8\":100.0,\"9\":100.0,\"10\":100.0,\"11\":100.0,\"12\":100.0,\"13\":100.0,\"14\":100.0,\"15\":100.0,\"16\":100.0,\"17\":100.0,\"18\":100.0,\"19\":100.0,\"20\":71.4285714286,\"21\":50.0,\"22\":40.0,\"23\":38.4615384615,\"24\":27.2727272727,\"25\":25.0,\"26\":20.0,\"27\":18.1818181818,\"28\":16.6666666667,\"29\":16.6666666667,\"30\":14.2857142857,\"31\":14.2857142857,\"32\":14.2857142857,\"33\":14.2857142857,\"34\":12.5,\"35\":12.5,\"36\":12.5,\"37\":10.0,\"38\":9.0909090909,\"39\":8.3333333333,\"40\":0.0,\"41\":0.0,\"42\":0.0,\"43\":0.0,\"44\":0.0,\"45\":0.0,\"46\":0.0,\"47\":0.0,\"48\":0.0,\"49\":0.0,\"50\":0.0,\"51\":0.0,\"52\":0.0,\"53\":0.0,\"54\":0.0,\"55\":0.0,\"56\":0.0,\"57\":0.0,\"58\":0.0,\"59\":0.0,\"60\":0.0,\"61\":0.0,\"62\":0.0,\"63\":0.0}}"
+                        "UnitName Test #0": "{\"taskGrades_name\":{\"0\":\"Landing - Two engines inoperative\",\"1\":\"After Landing Procedures - Taxi-in\",\"2\":\"Aircraft Procedures\",\"3\":\"Take-off - Crosswind, BA Medium\",\"4\":\"Take-off - Crosswind\",\"5\":\"Stall Recovery\",\"6\":\"Engine Start\",\"7\":\"Take-off - Normal\",\"8\":\"Approach - 3D (ILS), Manually, With FD\",\"9\":\"Perform Before Taxi Procedure\",\"10\":\"Communication\",\"11\":\"Landing - One engine inoperative\",\"12\":\"Landing - LVO, Min authorized RVR \\/ Crosswind\",\"13\":\"CDU\\/EFB Preflight Procedure\",\"14\":\"Landing - LVO\",\"15\":\"Before Start Procedures\",\"16\":\"Preliminary Preflight Procedures\",\"17\":\"Normal After Takeoff Procedure\",\"18\":\"Preflight Procedure - First Officer\",\"19\":\"Preflight Procedure - Captain\",\"20\":\"Perform Mode Control Panel (MCP) Operations\",\"21\":\"Special training for Captains\",\"22\":\"Various systems abnormals\\/emergencies\",\"23\":\"5. Leadership and teamwork\",\"24\":\"Grade 2\",\"25\":\"Landing - LVO (Final Grade)\",\"26\":\"After Landing Procedures\",\"27\":\"Grade 1\",\"28\":\"Engine Start Procedure (ground start)\",\"29\":\"Descend\",\"30\":\"Before Takeoff Procedure\",\"31\":\"Approach - 3D (RNP), With AP, To LPV minima (Final Grade)\",\"32\":\"Approach - 3D (ILS), With AP (Final Grade)\",\"33\":\"Application of Procedures & compliance with regulations\",\"34\":\"Airplane Pushback or Tow Out Procedure\",\"35\":\"After Landing Procedures - Shutdown\",\"36\":\"Workload Management\"},\"taskGrades_failed\":{\"0\":100.0,\"1\":100.0,\"2\":100.0,\"3\":100.0,\"4\":100.0,\"5\":100.0,\"6\":100.0,\"7\":60.0,\"8\":50.0,\"9\":50.0,\"10\":33.3333333333,\"11\":33.3333333333,\"12\":33.3333333333,\"13\":33.3333333333,\"14\":25.0,\"15\":25.0,\"16\":0.0,\"17\":0.0,\"18\":0.0,\"19\":0.0,\"20\":0.0,\"21\":0.0,\"22\":0.0,\"23\":0.0,\"24\":0.0,\"25\":0.0,\"26\":0.0,\"27\":0.0,\"28\":0.0,\"29\":0.0,\"30\":0.0,\"31\":0.0,\"32\":0.0,\"33\":0.0,\"34\":0.0,\"35\":0.0,\"36\":0.0}}"
+                    },
+                    {
+                        "UnitName Test #1": "{\"taskGrades_name\":{\"0\":\"Approach - 3D (RNP), With AP, To LPV minima\",\"1\":\"Landing - Normal\",\"2\":\"Taxiing\",\"3\":\"Approach - Circling\",\"4\":\"Special training for First Officers\",\"5\":\"Rejected Take-off\",\"6\":\"After Landing Procedures - Shutdown\",\"7\":\"Engine Start Procedure (ground start)\",\"8\":\"Preliminary Preflight Procedures\",\"9\":\"Grade 2\",\"10\":\"Take-off - Normal\",\"11\":\"Preflight Procedure - First Officer\",\"12\":\"Preflight Procedure - Captain\",\"13\":\"Perform Before Taxi Procedure\",\"14\":\"Landing - One engine inoperative\",\"15\":\"Various systems abnormals\\/emergencies\",\"16\":\"Landing - LVO, Min authorized RVR \\/ Crosswind (Final Grade)\",\"17\":\"Landing - LVO, Min authorized RVR \\/ Crosswind\",\"18\":\"3. Flight Path Management \\u2013 Automation\",\"19\":\"Grade 1\",\"20\":\"4. Flight Path Management \\u2013 Manual.\",\"21\":\"Descend\",\"22\":\"Communication\",\"23\":\"Climb\",\"24\":\"CDU\\/EFB Preflight Procedure\",\"25\":\"Before Takeoff Procedure\",\"26\":\"Before Start Procedures\",\"27\":\"Approach - 3D (ILS), With AP\",\"28\":\"Application of Procedures & compliance with regulations\",\"29\":\"Application of Procedures\",\"30\":\"Application of Knowledge\",\"31\":\"Airplane Pushback or Tow Out Procedure\",\"32\":\"After Landing Procedures\",\"33\":\"Workload Management\"},\"taskGrades_failed\":{\"0\":100.0,\"1\":100.0,\"2\":100.0,\"3\":100.0,\"4\":100.0,\"5\":66.6666666667,\"6\":50.0,\"7\":33.3333333333,\"8\":0.0,\"9\":0.0,\"10\":0.0,\"11\":0.0,\"12\":0.0,\"13\":0.0,\"14\":0.0,\"15\":0.0,\"16\":0.0,\"17\":0.0,\"18\":0.0,\"19\":0.0,\"20\":0.0,\"21\":0.0,\"22\":0.0,\"23\":0.0,\"24\":0.0,\"25\":0.0,\"26\":0.0,\"27\":0.0,\"28\":0.0,\"29\":0.0,\"30\":0.0,\"31\":0.0,\"32\":0.0,\"33\":0.0}}"
                     }
                 ],
                 "telemetry_drilldown": [
                     {
-                        "UnitName Test #0": "{\"taskGrades_name\":{\"0\":\"Approach - 3D (RNP), With AP, To LPV minima\",\"3\":\"Rejected Take-off\",\"4\":\"Take-off - Normal\",\"1\":\"Landing - Normal\",\"2\":\"Landing - Two engines inoperative\"},\"exceedance_state\":{\"0\":100.0,\"3\":50.0,\"4\":16.6666666667,\"1\":0.0,\"2\":0.0}}"
+                        "UnitName Test #0": "{\"taskGrades_name\":{\"0\":\"Landing - Two engines inoperative\",\"1\":\"Take-off - Normal\"},\"exceedance_state\":{\"0\":100.0,\"1\":100.0}}"
+                    },
+                    {
+                        "UnitName Test #1": "{\"taskGrades_name\":{\"2\":\"Landing - Normal\",\"3\":\"Rejected Take-off\",\"4\":\"Take-off - Normal\"},\"exceedance_state\":{\"2\":100.0,\"3\":100.0,\"4\":50.0}}"
                     }
                 ]
             }
@@ -359,40 +621,16 @@
     ],
     "courses": [
         {
-            "training_cycle": "Jul 01, 2022 → Dec 31, 2022",
-            "training_program": "Initial Training",
+            "course_name": "Course2",
+            "training_program": "Initial",
             "platform": "737MAX",
             "training_center": "CAE New Delhi",
             "content": {
                 "lowest_objective_score": "Preflight Procedures",
-                "problematic_objectives_students_involved": "{\"taskGrades_name\":{\"31\":\"Rejected Take-off\",\"38\":\"Take-off - Normal\",\"23\":\"Landing - One engine inoperative\",\"30\":\"Preliminary Preflight Procedures\",\"12\":\"Communication\",\"39\":\"Taxiing\",\"34\":\"Take-off - Crosswind\",\"33\":\"Stall Recovery\",\"32\":\"Special training for First Officers\",\"35\":\"Take-off - Crosswind, BA Medium\",\"21\":\"Landing - LVO, Min authorized RVR \\/ Crosswind\",\"29\":\"Preflight Procedures\",\"36\":\"Take-off - Engine fire  between V1 and V2\",\"28\":\"Preflight Procedure - Captain\",\"27\":\"Perform Mode Control Panel (MCP) Operations\",\"26\":\"Perform Before Taxi Procedure\",\"25\":\"Landing - Two engines inoperative, Contaminated RWY\",\"24\":\"Landing - Two engines inoperative\",\"37\":\"Take-off - Max crosswind\",\"22\":\"Landing - Normal\",\"0\":\"ABNORMAL ENGINE START\",\"1\":\"After Landing Procedures - Shutdown\",\"9\":\"Before Take-off Checks\",\"2\":\"After Landing Procedures - Taxi-in\",\"3\":\"Aircraft Procedures\",\"4\":\"Airplane Pushback or Tow Out Procedure\",\"5\":\"Approach - 3D (ILS), Manually, With FD\",\"6\":\"Approach - 3D (RNP), With AP, To LPV minima\",\"7\":\"Approach - Circling\",\"8\":\"Before Start Procedures\",\"10\":\"Before Takeoff Procedure\",\"19\":\"Landing - Crosswind\",\"11\":\"CDU\\/EFB Preflight Procedure\",\"13\":\"Engine Start\",\"14\":\"Engine Start Procedure (ground start)\",\"15\":\"Go-around - LVO\",\"16\":\"Grade 1\",\"17\":\"Grade 2\",\"18\":\"Landing\",\"20\":\"Landing - LVO\"},\"client_fullName\":{\"31\":9,\"38\":5,\"23\":4,\"30\":3,\"12\":2,\"39\":2,\"34\":1,\"33\":1,\"32\":1,\"35\":1,\"21\":1,\"29\":1,\"36\":1,\"28\":1,\"27\":1,\"26\":1,\"25\":1,\"24\":1,\"37\":1,\"22\":1,\"0\":1,\"1\":1,\"9\":1,\"2\":1,\"3\":1,\"4\":1,\"5\":1,\"6\":1,\"7\":1,\"8\":1,\"10\":1,\"19\":1,\"11\":1,\"13\":1,\"14\":1,\"15\":1,\"16\":1,\"17\":1,\"18\":1,\"20\":1}}",
+                "problematic_objectives_students_involved": "{\"taskGrades_name\":{\"18\":\"Rejected Take-off\",\"12\":\"Landing - One engine inoperative\",\"17\":\"Preliminary Preflight Procedures\",\"23\":\"Take-off - Normal\",\"13\":\"Landing - Two engines inoperative, Contaminated RWY\",\"22\":\"Take-off - Max crosswind\",\"21\":\"Take-off - Engine fire  between V1 and V2\",\"20\":\"Take-off - Crosswind\",\"19\":\"Stall Recovery\",\"16\":\"Preflight Procedures\",\"15\":\"Preflight Procedure - Captain\",\"14\":\"Perform Mode Control Panel (MCP) Operations\",\"0\":\"ABNORMAL ENGINE START\",\"1\":\"Aircraft Procedures\",\"11\":\"Landing - Crosswind\",\"10\":\"Landing\",\"9\":\"Grade 2\",\"8\":\"Grade 1\",\"7\":\"Go-around - LVO\",\"6\":\"Communication\",\"5\":\"Before Takeoff Procedure\",\"4\":\"Before Take-off Checks\",\"3\":\"Approach - Circling\",\"2\":\"Airplane Pushback or Tow Out Procedure\",\"24\":\"Taxiing\"},\"client_fullName\":{\"18\":6,\"12\":3,\"17\":3,\"23\":2,\"13\":1,\"22\":1,\"21\":1,\"20\":1,\"19\":1,\"16\":1,\"15\":1,\"14\":1,\"0\":1,\"1\":1,\"11\":1,\"10\":1,\"9\":1,\"8\":1,\"7\":1,\"6\":1,\"5\":1,\"4\":1,\"3\":1,\"2\":1,\"24\":1}}",
                 "top_skipped_objectives": [
                     {
-                        "maneuver": "Preflight Procedure - First Officer",
-                        "session": "UnitName Test #0",
-                        "count": 3,
-                        "name": "skips"
-                    },
-                    {
-                        "maneuver": "After Landing Procedures - Shutdown",
-                        "session": "UnitName Test #0",
-                        "count": 1,
-                        "name": "skips"
-                    },
-                    {
-                        "maneuver": "Descend",
-                        "session": "UnitName Test #0",
-                        "count": 1,
-                        "name": "skips"
-                    },
-                    {
                         "maneuver": "Perform Before Taxi Procedure",
-                        "session": "UnitName Test #0",
-                        "count": 1,
-                        "name": "skips"
-                    },
-                    {
-                        "maneuver": "Preflight Procedure - Captain",
                         "session": "UnitName Test #0",
                         "count": 1,
                         "name": "skips"
@@ -401,32 +639,14 @@
                 "top_repeated_objectives": [
                     {
                         "maneuver": "Take-off - Normal",
-                        "session": "UnitName Test #0",
-                        "count": 13,
-                        "name": "repeats"
-                    },
-                    {
-                        "maneuver": "Descend",
-                        "session": "UnitName Test #0",
-                        "count": 5,
-                        "name": "repeats"
-                    },
-                    {
-                        "maneuver": "Landing - One engine inoperative",
-                        "session": "UnitName Test #0",
+                        "session": "UnitName Test #1",
                         "count": 5,
                         "name": "repeats"
                     },
                     {
                         "maneuver": "Rejected Take-off",
                         "session": "UnitName Test #0",
-                        "count": 5,
-                        "name": "repeats"
-                    },
-                    {
-                        "maneuver": "Before Start Procedures",
-                        "session": "UnitName Test #0",
-                        "count": 3,
+                        "count": 4,
                         "name": "repeats"
                     },
                     {
@@ -436,26 +656,32 @@
                         "name": "repeats"
                     },
                     {
-                        "maneuver": "CDU/EFB Preflight Procedure",
-                        "session": "UnitName Test #0",
+                        "maneuver": "Before Start Procedures",
+                        "session": "UnitName Test #1",
                         "count": 1,
                         "name": "repeats"
                     },
                     {
                         "maneuver": "Communication",
+                        "session": "UnitName Test #1",
+                        "count": 1,
+                        "name": "repeats"
+                    },
+                    {
+                        "maneuver": "Descend",
                         "session": "UnitName Test #0",
                         "count": 1,
                         "name": "repeats"
                     },
                     {
-                        "maneuver": "Preflight Procedure - Captain",
+                        "maneuver": "Landing - One engine inoperative",
                         "session": "UnitName Test #0",
                         "count": 1,
                         "name": "repeats"
                     },
                     {
-                        "maneuver": "Preflight Procedure - First Officer",
-                        "session": "UnitName Test #0",
+                        "maneuver": "Landing - One engine inoperative",
+                        "session": "UnitName Test #1",
                         "count": 1,
                         "name": "repeats"
                     },
@@ -466,7 +692,7 @@
                         "name": "repeats"
                     },
                     {
-                        "maneuver": "Workload Management",
+                        "maneuver": "Take-off - Normal",
                         "session": "UnitName Test #0",
                         "count": 1,
                         "name": "repeats"
@@ -475,241 +701,601 @@
                 "top_unsatisfactory_sessions": [
                     {
                         "session": "UnitName Test #0",
-                        "count": 10,
-                        "num_of_session": 31
+                        "count": 7,
+                        "num_of_session": 26
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "count": 7,
+                        "num_of_session": 25
                     }
                 ],
                 "top_incomplete_sessions": [],
                 "repeated_objectives_per_session": [
                     {
                         "session": "UnitName Test #0",
-                        "count": 38,
-                        "percent": 0.1605351170568562
+                        "count": 9,
+                        "percent": 0.15789473684210525
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "count": 8,
+                        "percent": 0.1232876712328767
                     }
                 ],
                 "top_developmental_ob": [
                     {
-                        "ob": "APK - OB 5",
-                        "percent": 23.4,
-                        "behaviour": "Monitors aircraft system status"
-                    },
-                    {
                         "ob": "APK - OB 6",
-                        "percent": 14.9,
+                        "percent": 22.7,
                         "behaviour": "Complies with applicable regulations"
                     },
                     {
-                        "ob": "APK - OB 4",
-                        "percent": 12.8,
-                        "behaviour": "Operates aeroplane systems and associated equipment correctly"
+                        "ob": "APK - OB 5",
+                        "percent": 22.7,
+                        "behaviour": "Monitors aircraft system status"
                     },
                     {
                         "ob": "APK - OB 1",
-                        "percent": 10.6,
+                        "percent": 9.1,
                         "behaviour": "Identifies where to find procedures and regulations"
                     },
                     {
-                        "ob": "APK - OB 3",
-                        "percent": 8.5,
-                        "behaviour": "Follows SOPs unless a higher degree of safety dictates an appropriate deviation"
-                    },
-                    {
                         "ob": "APK - OB 2",
-                        "percent": 8.5,
+                        "percent": 9.1,
                         "behaviour": "Applies relevant operating instructions, procedures and techniques in a timely manner"
                     },
                     {
-                        "ob": "APK - OB 7",
-                        "percent": 6.4,
-                        "behaviour": "Applies relevant procedural knowledge"
-                    },
-                    {
-                        "ob": "PSD - OB 4",
-                        "percent": 2.1,
-                        "behaviour": "Perseveres inworking through problems whilst prioritising safety"
-                    },
-                    {
-                        "ob": "COM - OB 3",
-                        "percent": 2.1,
-                        "behaviour": "Conveys messages clearly, accurately and concisely"
+                        "ob": "APK - OB 4",
+                        "percent": 9.1,
+                        "behaviour": "Operates aeroplane systems and associated equipment correctly"
                     },
                     {
                         "ob": "SAW - OB 7",
-                        "percent": 2.1,
+                        "percent": 4.5,
                         "behaviour": "Responds to indications of reduced situation awareness"
                     },
                     {
+                        "ob": "APK - OB 7",
+                        "percent": 4.5,
+                        "behaviour": "Applies relevant procedural knowledge"
+                    },
+                    {
+                        "ob": "APK - OB 3",
+                        "percent": 4.5,
+                        "behaviour": "Follows SOPs unless a higher degree of safety dictates an appropriate deviation"
+                    },
+                    {
                         "ob": "COM - OB 4",
-                        "percent": 2.1,
+                        "percent": 4.5,
                         "behaviour": "Confirms that the recipient demonstrates understanding of important information"
                     },
                     {
                         "ob": "PSD - OB 3",
-                        "percent": 2.1,
+                        "percent": 4.5,
                         "behaviour": "Identifies and verifies what and why things have gone wrong, if appropriate"
                     },
                     {
                         "ob": "SAW - OB 3",
-                        "percent": 2.1,
+                        "percent": 4.5,
                         "behaviour": "Monitors and assesses the general environment as it may affect the operation"
-                    },
-                    {
-                        "ob": "COM - OB 1",
-                        "percent": 2.1,
-                        "behaviour": "Determines that the recipient is ready and able to receive information"
                     }
                 ],
                 "top_positive_ob": [
                     {
                         "ob": "APK - OB 1",
-                        "percent": 30,
+                        "percent": 33.3,
                         "behaviour": "Identifies where to find procedures and regulations"
                     },
                     {
-                        "ob": "APK - OB 5",
-                        "percent": 20,
-                        "behaviour": "Monitors aircraft system status"
-                    },
-                    {
                         "ob": "APK - OB 2",
-                        "percent": 20,
+                        "percent": 33.3,
                         "behaviour": "Applies relevant operating instructions, procedures and techniques in a timely manner"
                     },
                     {
+                        "ob": "APK - OB 5",
+                        "percent": 16.7,
+                        "behaviour": "Monitors aircraft system status"
+                    },
+                    {
                         "ob": "APK - OB 4",
-                        "percent": 10,
+                        "percent": 16.7,
                         "behaviour": "Operates aeroplane systems and associated equipment correctly"
-                    },
-                    {
-                        "ob": "FPA - OB 1",
-                        "percent": 10,
-                        "behaviour": "Uses appropriate flight management, guidance systems and automation, as installed and applicable to the conditions"
-                    },
-                    {
-                        "ob": "FPA - OB 2",
-                        "percent": 10,
-                        "behaviour": "Monitors and detects deviations from the intended flight path and takes appropriate action"
                     }
                 ],
                 "ob_by_session": [
                     {
                         "session": "UnitName Test #0",
                         "ob": "APK - OB 5",
-                        "percent": 22.8,
+                        "percent": 14.3,
                         "behaviour": "Monitors aircraft system status"
                     },
                     {
                         "session": "UnitName Test #0",
-                        "ob": "APK - OB 1",
-                        "percent": 14,
-                        "behaviour": "Identifies where to find procedures and regulations"
-                    },
-                    {
-                        "session": "UnitName Test #0",
                         "ob": "APK - OB 4",
-                        "percent": 12.3,
+                        "percent": 10.7,
                         "behaviour": "Operates aeroplane systems and associated equipment correctly"
                     },
                     {
                         "session": "UnitName Test #0",
                         "ob": "APK - OB 6",
-                        "percent": 12.3,
+                        "percent": 10.7,
                         "behaviour": "Complies with applicable regulations"
                     },
                     {
                         "session": "UnitName Test #0",
+                        "ob": "APK - OB 1",
+                        "percent": 7.1,
+                        "behaviour": "Identifies where to find procedures and regulations"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "APK - OB 1",
+                        "percent": 7.1,
+                        "behaviour": "Identifies where to find procedures and regulations"
+                    },
+                    {
+                        "session": "UnitName Test #0",
                         "ob": "APK - OB 2",
-                        "percent": 10.5,
+                        "percent": 7.1,
                         "behaviour": "Applies relevant operating instructions, procedures and techniques in a timely manner"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "APK - OB 2",
+                        "percent": 7.1,
+                        "behaviour": "Applies relevant operating instructions, procedures and techniques in a timely manner"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "APK - OB 5",
+                        "percent": 7.1,
+                        "behaviour": "Monitors aircraft system status"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "APK - OB 6",
+                        "percent": 7.1,
+                        "behaviour": "Complies with applicable regulations"
                     },
                     {
                         "session": "UnitName Test #0",
                         "ob": "APK - OB 3",
-                        "percent": 7,
+                        "percent": 3.6,
                         "behaviour": "Follows SOPs unless a higher degree of safety dictates an appropriate deviation"
                     },
                     {
                         "session": "UnitName Test #0",
                         "ob": "APK - OB 7",
-                        "percent": 5.3,
+                        "percent": 3.6,
                         "behaviour": "Applies relevant procedural knowledge"
                     },
                     {
                         "session": "UnitName Test #0",
-                        "ob": "COM - OB 1",
-                        "percent": 1.8,
-                        "behaviour": "Determines that the recipient is ready and able to receive information"
-                    },
-                    {
-                        "session": "UnitName Test #0",
-                        "ob": "COM - OB 3",
-                        "percent": 1.8,
-                        "behaviour": "Conveys messages clearly, accurately and concisely"
-                    },
-                    {
-                        "session": "UnitName Test #0",
                         "ob": "COM - OB 4",
-                        "percent": 1.8,
+                        "percent": 3.6,
                         "behaviour": "Confirms that the recipient demonstrates understanding of important information"
                     },
                     {
-                        "session": "UnitName Test #0",
-                        "ob": "FPA - OB 1",
-                        "percent": 1.8,
-                        "behaviour": "Uses appropriate flight management, guidance systems and automation, as installed and applicable to the conditions"
-                    },
-                    {
-                        "session": "UnitName Test #0",
-                        "ob": "FPA - OB 2",
-                        "percent": 1.8,
-                        "behaviour": "Monitors and detects deviations from the intended flight path and takes appropriate action"
-                    },
-                    {
-                        "session": "UnitName Test #0",
+                        "session": "UnitName Test #1",
                         "ob": "PSD - OB 3",
-                        "percent": 1.8,
+                        "percent": 3.6,
                         "behaviour": "Identifies and verifies what and why things have gone wrong, if appropriate"
                     },
                     {
                         "session": "UnitName Test #0",
-                        "ob": "PSD - OB 4",
-                        "percent": 1.8,
-                        "behaviour": "Perseveres inworking through problems whilst prioritising safety"
-                    },
-                    {
-                        "session": "UnitName Test #0",
                         "ob": "SAW - OB 3",
-                        "percent": 1.8,
+                        "percent": 3.6,
                         "behaviour": "Monitors and assesses the general environment as it may affect the operation"
                     },
                     {
-                        "session": "UnitName Test #0",
+                        "session": "UnitName Test #1",
                         "ob": "SAW - OB 7",
-                        "percent": 1.8,
+                        "percent": 3.6,
                         "behaviour": "Responds to indications of reduced situation awareness"
                     }
                 ],
-                "highest_rate_of_exceedances": "{\"taskGrades_name\":{\"0\":\"Approach - 3D (RNP), With AP, To LPV minima\",\"1\":\"Rejected Take-off\",\"2\":\"Take-off - Normal\"},\"client_fullName\":{\"0\":1,\"1\":1,\"2\":1}}"
+                "highest_rate_of_exceedances": "{\"taskGrades_name\":{\"0\":\"Take-off - Normal\"},\"client_fullName\":{\"0\":1}}"
+            }
+        },
+        {
+            "course_name": "Course1",
+            "training_program": "Initial",
+            "platform": "737MAX",
+            "training_center": "CAE New Delhi",
+            "content": {
+                "lowest_objective_score": "Approach - Circling",
+                "problematic_objectives_students_involved": "{\"taskGrades_name\":{\"17\":\"Rejected Take-off\",\"22\":\"Take-off - Normal\",\"23\":\"Taxiing\",\"1\":\"After Landing Procedures - Taxi-in\",\"21\":\"Take-off - Crosswind, BA Medium\",\"20\":\"Take-off - Crosswind\",\"19\":\"Stall Recovery\",\"18\":\"Special training for First Officers\",\"16\":\"Perform Before Taxi Procedure\",\"15\":\"Landing - Two engines inoperative\",\"14\":\"Landing - One engine inoperative\",\"13\":\"Landing - Normal\",\"0\":\"After Landing Procedures - Shutdown\",\"11\":\"Landing - LVO\",\"10\":\"Engine Start Procedure (ground start)\",\"9\":\"Engine Start\",\"8\":\"Communication\",\"7\":\"CDU\\/EFB Preflight Procedure\",\"6\":\"Before Start Procedures\",\"5\":\"Approach - Circling\",\"4\":\"Approach - 3D (RNP), With AP, To LPV minima\",\"3\":\"Approach - 3D (ILS), Manually, With FD\",\"2\":\"Aircraft Procedures\",\"12\":\"Landing - LVO, Min authorized RVR \\/ Crosswind\"},\"client_fullName\":{\"17\":4,\"22\":3,\"23\":2,\"1\":1,\"21\":1,\"20\":1,\"19\":1,\"18\":1,\"16\":1,\"15\":1,\"14\":1,\"13\":1,\"0\":1,\"11\":1,\"10\":1,\"9\":1,\"8\":1,\"7\":1,\"6\":1,\"5\":1,\"4\":1,\"3\":1,\"2\":1,\"12\":1}}",
+                "top_skipped_objectives": [
+                    {
+                        "maneuver": "Preflight Procedure - First Officer",
+                        "session": "UnitName Test #1",
+                        "count": 2,
+                        "name": "skips"
+                    },
+                    {
+                        "maneuver": "After Landing Procedures - Shutdown",
+                        "session": "UnitName Test #1",
+                        "count": 1,
+                        "name": "skips"
+                    },
+                    {
+                        "maneuver": "Descend",
+                        "session": "UnitName Test #1",
+                        "count": 1,
+                        "name": "skips"
+                    },
+                    {
+                        "maneuver": "Preflight Procedure - Captain",
+                        "session": "UnitName Test #1",
+                        "count": 1,
+                        "name": "skips"
+                    },
+                    {
+                        "maneuver": "Preflight Procedure - First Officer",
+                        "session": "UnitName Test #0",
+                        "count": 1,
+                        "name": "skips"
+                    }
+                ],
+                "top_repeated_objectives": [
+                    {
+                        "maneuver": "Take-off - Normal",
+                        "session": "UnitName Test #0",
+                        "count": 7,
+                        "name": "repeats"
+                    },
+                    {
+                        "maneuver": "Descend",
+                        "session": "UnitName Test #0",
+                        "count": 4,
+                        "name": "repeats"
+                    },
+                    {
+                        "maneuver": "Landing - One engine inoperative",
+                        "session": "UnitName Test #1",
+                        "count": 3,
+                        "name": "repeats"
+                    },
+                    {
+                        "maneuver": "Before Start Procedures",
+                        "session": "UnitName Test #0",
+                        "count": 2,
+                        "name": "repeats"
+                    },
+                    {
+                        "maneuver": "CDU/EFB Preflight Procedure",
+                        "session": "UnitName Test #0",
+                        "count": 1,
+                        "name": "repeats"
+                    },
+                    {
+                        "maneuver": "Preflight Procedure - Captain",
+                        "session": "UnitName Test #0",
+                        "count": 1,
+                        "name": "repeats"
+                    },
+                    {
+                        "maneuver": "Preflight Procedure - First Officer",
+                        "session": "UnitName Test #1",
+                        "count": 1,
+                        "name": "repeats"
+                    },
+                    {
+                        "maneuver": "Rejected Take-off",
+                        "session": "UnitName Test #1",
+                        "count": 1,
+                        "name": "repeats"
+                    },
+                    {
+                        "maneuver": "Workload Management",
+                        "session": "UnitName Test #1",
+                        "count": 1,
+                        "name": "repeats"
+                    }
+                ],
+                "top_unsatisfactory_sessions": [
+                    {
+                        "session": "UnitName Test #0",
+                        "count": 9,
+                        "num_of_session": 30
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "count": 6,
+                        "num_of_session": 24
+                    }
+                ],
+                "top_incomplete_sessions": [],
+                "repeated_objectives_per_session": [
+                    {
+                        "session": "UnitName Test #0",
+                        "count": 15,
+                        "percent": 0.21052631578947367
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "count": 6,
+                        "percent": 0.14864864864864866
+                    }
+                ],
+                "top_developmental_ob": [
+                    {
+                        "ob": "APK - OB 5",
+                        "percent": 24,
+                        "behaviour": "Monitors aircraft system status"
+                    },
+                    {
+                        "ob": "APK - OB 4",
+                        "percent": 16,
+                        "behaviour": "Operates aeroplane systems and associated equipment correctly"
+                    },
+                    {
+                        "ob": "APK - OB 3",
+                        "percent": 12,
+                        "behaviour": "Follows SOPs unless a higher degree of safety dictates an appropriate deviation"
+                    },
+                    {
+                        "ob": "APK - OB 1",
+                        "percent": 12,
+                        "behaviour": "Identifies where to find procedures and regulations"
+                    },
+                    {
+                        "ob": "APK - OB 7",
+                        "percent": 8,
+                        "behaviour": "Applies relevant procedural knowledge"
+                    },
+                    {
+                        "ob": "APK - OB 6",
+                        "percent": 8,
+                        "behaviour": "Complies with applicable regulations"
+                    },
+                    {
+                        "ob": "APK - OB 2",
+                        "percent": 8,
+                        "behaviour": "Applies relevant operating instructions, procedures and techniques in a timely manner"
+                    },
+                    {
+                        "ob": "COM - OB 3",
+                        "percent": 4,
+                        "behaviour": "Conveys messages clearly, accurately and concisely"
+                    },
+                    {
+                        "ob": "PSD - OB 4",
+                        "percent": 4,
+                        "behaviour": "Perseveres inworking through problems whilst prioritising safety"
+                    },
+                    {
+                        "ob": "COM - OB 1",
+                        "percent": 4,
+                        "behaviour": "Determines that the recipient is ready and able to receive information"
+                    }
+                ],
+                "top_positive_ob": [
+                    {
+                        "ob": "APK - OB 5",
+                        "percent": 25,
+                        "behaviour": "Monitors aircraft system status"
+                    },
+                    {
+                        "ob": "FPA - OB 2",
+                        "percent": 25,
+                        "behaviour": "Monitors and detects deviations from the intended flight path and takes appropriate action"
+                    },
+                    {
+                        "ob": "APK - OB 1",
+                        "percent": 25,
+                        "behaviour": "Identifies where to find procedures and regulations"
+                    },
+                    {
+                        "ob": "FPA - OB 1",
+                        "percent": 25,
+                        "behaviour": "Uses appropriate flight management, guidance systems and automation, as installed and applicable to the conditions"
+                    }
+                ],
+                "ob_by_session": [
+                    {
+                        "session": "UnitName Test #0",
+                        "ob": "APK - OB 5",
+                        "percent": 20.7,
+                        "behaviour": "Monitors aircraft system status"
+                    },
+                    {
+                        "session": "UnitName Test #0",
+                        "ob": "APK - OB 4",
+                        "percent": 10.3,
+                        "behaviour": "Operates aeroplane systems and associated equipment correctly"
+                    },
+                    {
+                        "session": "UnitName Test #0",
+                        "ob": "APK - OB 1",
+                        "percent": 6.9,
+                        "behaviour": "Identifies where to find procedures and regulations"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "APK - OB 3",
+                        "percent": 6.9,
+                        "behaviour": "Follows SOPs unless a higher degree of safety dictates an appropriate deviation"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "APK - OB 1",
+                        "percent": 6.9,
+                        "behaviour": "Identifies where to find procedures and regulations"
+                    },
+                    {
+                        "session": "UnitName Test #0",
+                        "ob": "APK - OB 7",
+                        "percent": 3.4,
+                        "behaviour": "Applies relevant procedural knowledge"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "FPA - OB 2",
+                        "percent": 3.4,
+                        "behaviour": "Monitors and detects deviations from the intended flight path and takes appropriate action"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "FPA - OB 1",
+                        "percent": 3.4,
+                        "behaviour": "Uses appropriate flight management, guidance systems and automation, as installed and applicable to the conditions"
+                    },
+                    {
+                        "session": "UnitName Test #0",
+                        "ob": "COM - OB 3",
+                        "percent": 3.4,
+                        "behaviour": "Conveys messages clearly, accurately and concisely"
+                    },
+                    {
+                        "session": "UnitName Test #0",
+                        "ob": "COM - OB 1",
+                        "percent": 3.4,
+                        "behaviour": "Determines that the recipient is ready and able to receive information"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "APK - OB 7",
+                        "percent": 3.4,
+                        "behaviour": "Applies relevant procedural knowledge"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "APK - OB 5",
+                        "percent": 3.4,
+                        "behaviour": "Monitors aircraft system status"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "APK - OB 6",
+                        "percent": 3.4,
+                        "behaviour": "Complies with applicable regulations"
+                    },
+                    {
+                        "session": "UnitName Test #0",
+                        "ob": "APK - OB 6",
+                        "percent": 3.4,
+                        "behaviour": "Complies with applicable regulations"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "APK - OB 4",
+                        "percent": 3.4,
+                        "behaviour": "Operates aeroplane systems and associated equipment correctly"
+                    },
+                    {
+                        "session": "UnitName Test #0",
+                        "ob": "APK - OB 3",
+                        "percent": 3.4,
+                        "behaviour": "Follows SOPs unless a higher degree of safety dictates an appropriate deviation"
+                    },
+                    {
+                        "session": "UnitName Test #1",
+                        "ob": "APK - OB 2",
+                        "percent": 3.4,
+                        "behaviour": "Applies relevant operating instructions, procedures and techniques in a timely manner"
+                    },
+                    {
+                        "session": "UnitName Test #0",
+                        "ob": "APK - OB 2",
+                        "percent": 3.4,
+                        "behaviour": "Applies relevant operating instructions, procedures and techniques in a timely manner"
+                    },
+                    {
+                        "session": "UnitName Test #0",
+                        "ob": "PSD - OB 4",
+                        "percent": 3.4,
+                        "behaviour": "Perseveres inworking through problems whilst prioritising safety"
+                    }
+                ],
+                "highest_rate_of_exceedances": "{\"taskGrades_name\":{\"3\":\"Take-off - Normal\",\"0\":\"Landing - Normal\",\"1\":\"Landing - Two engines inoperative\",\"2\":\"Rejected Take-off\"},\"client_fullName\":{\"3\":3,\"0\":1,\"1\":1,\"2\":1}}"
             }
         }
     ],
     "students": [
         {
-            "training_cycle": "Jul 01, 2022 → Dec 31, 2022",
-            "training_program": "Initial Training",
+            "course_name": "Course2",
+            "training_program": "Initial",
             "platform": "737MAX",
             "training_center": "CAE New Delhi",
             "content": {
-                "challenging_competencies": "{\"Competency\":{\"0\":\"Application of Procedures\",\"1\":\"Communication\",\"2\":\"Problem-Solving and Decision-Making\",\"3\":\"Situation Awareness (and management of information)\"},\"client_fullName\":{\"0\":12,\"1\":2,\"2\":2,\"3\":2}}",
-                "challenging_maneuvers_grading": "{\"taskGrades_name\":{\"31\":\"Rejected Take-off\",\"38\":\"Take-off - Normal\",\"23\":\"Landing - One engine inoperative\",\"30\":\"Preliminary Preflight Procedures\",\"12\":\"Communication\",\"39\":\"Taxiing\",\"34\":\"Take-off - Crosswind\",\"33\":\"Stall Recovery\",\"32\":\"Special training for First Officers\",\"35\":\"Take-off - Crosswind, BA Medium\",\"21\":\"Landing - LVO, Min authorized RVR \\/ Crosswind\",\"29\":\"Preflight Procedures\",\"36\":\"Take-off - Engine fire  between V1 and V2\",\"28\":\"Preflight Procedure - Captain\",\"27\":\"Perform Mode Control Panel (MCP) Operations\",\"26\":\"Perform Before Taxi Procedure\",\"25\":\"Landing - Two engines inoperative, Contaminated RWY\",\"24\":\"Landing - Two engines inoperative\",\"37\":\"Take-off - Max crosswind\",\"22\":\"Landing - Normal\",\"0\":\"ABNORMAL ENGINE START\",\"1\":\"After Landing Procedures - Shutdown\",\"9\":\"Before Take-off Checks\",\"2\":\"After Landing Procedures - Taxi-in\",\"3\":\"Aircraft Procedures\",\"4\":\"Airplane Pushback or Tow Out Procedure\",\"5\":\"Approach - 3D (ILS), Manually, With FD\",\"6\":\"Approach - 3D (RNP), With AP, To LPV minima\",\"7\":\"Approach - Circling\",\"8\":\"Before Start Procedures\",\"10\":\"Before Takeoff Procedure\",\"19\":\"Landing - Crosswind\",\"11\":\"CDU\\/EFB Preflight Procedure\",\"13\":\"Engine Start\",\"14\":\"Engine Start Procedure (ground start)\",\"15\":\"Go-around - LVO\",\"16\":\"Grade 1\",\"17\":\"Grade 2\",\"18\":\"Landing\",\"20\":\"Landing - LVO\"},\"client_fullName\":{\"31\":9,\"38\":5,\"23\":4,\"30\":3,\"12\":2,\"39\":2,\"34\":1,\"33\":1,\"32\":1,\"35\":1,\"21\":1,\"29\":1,\"36\":1,\"28\":1,\"27\":1,\"26\":1,\"25\":1,\"24\":1,\"37\":1,\"22\":1,\"0\":1,\"1\":1,\"9\":1,\"2\":1,\"3\":1,\"4\":1,\"5\":1,\"6\":1,\"7\":1,\"8\":1,\"10\":1,\"19\":1,\"11\":1,\"13\":1,\"14\":1,\"15\":1,\"16\":1,\"17\":1,\"18\":1,\"20\":1}}",
-                "challenging_maneuvers_telemetry": "{\"Maneuver\":{\"0\":\"Rejected Take-off\",\"1\":\"Take-off - Normal\"},\"client_fullName\":{\"0\":1,\"1\":1}}"
+                "challenging_competencies": "{\"Competency\":{\"0\":\"Application of Procedures\",\"3\":\"Situation Awareness (and management of information)\",\"1\":\"Communication\",\"2\":\"Problem-Solving and Decision-Making\"},\"client_fullName\":{\"0\":10,\"3\":2,\"1\":1,\"2\":1}}",
+                "challenging_maneuvers_grading": "{\"taskGrades_name\":{\"18\":\"Rejected Take-off\",\"12\":\"Landing - One engine inoperative\",\"17\":\"Preliminary Preflight Procedures\",\"23\":\"Take-off - Normal\",\"13\":\"Landing - Two engines inoperative, Contaminated RWY\",\"22\":\"Take-off - Max crosswind\",\"21\":\"Take-off - Engine fire  between V1 and V2\",\"20\":\"Take-off - Crosswind\",\"19\":\"Stall Recovery\",\"16\":\"Preflight Procedures\",\"15\":\"Preflight Procedure - Captain\",\"14\":\"Perform Mode Control Panel (MCP) Operations\",\"0\":\"ABNORMAL ENGINE START\",\"1\":\"Aircraft Procedures\",\"11\":\"Landing - Crosswind\",\"10\":\"Landing\",\"9\":\"Grade 2\",\"8\":\"Grade 1\",\"7\":\"Go-around - LVO\",\"6\":\"Communication\",\"5\":\"Before Takeoff Procedure\",\"4\":\"Before Take-off Checks\",\"3\":\"Approach - Circling\",\"2\":\"Airplane Pushback or Tow Out Procedure\",\"24\":\"Taxiing\"},\"client_fullName\":{\"18\":6,\"12\":3,\"17\":3,\"23\":2,\"13\":1,\"22\":1,\"21\":1,\"20\":1,\"19\":1,\"16\":1,\"15\":1,\"14\":1,\"0\":1,\"1\":1,\"11\":1,\"10\":1,\"9\":1,\"8\":1,\"7\":1,\"6\":1,\"5\":1,\"4\":1,\"3\":1,\"2\":1,\"24\":1}}",
+                "challenging_maneuvers_telemetry": "{\"Maneuver\":{\"0\":\"Take-off - Normal\"},\"client_fullName\":{\"0\":1}}"
+            }
+        },
+        {
+            "course_name": "Course1",
+            "training_program": "Initial",
+            "platform": "737MAX",
+            "training_center": "CAE New Delhi",
+            "content": {
+                "challenging_competencies": "{\"Competency\":{\"0\":\"Application of Procedures\",\"1\":\"Communication\",\"2\":\"Problem-Solving and Decision-Making\"},\"client_fullName\":{\"0\":9,\"1\":1,\"2\":1}}",
+                "challenging_maneuvers_grading": "{\"taskGrades_name\":{\"17\":\"Rejected Take-off\",\"22\":\"Take-off - Normal\",\"23\":\"Taxiing\",\"1\":\"After Landing Procedures - Taxi-in\",\"21\":\"Take-off - Crosswind, BA Medium\",\"20\":\"Take-off - Crosswind\",\"19\":\"Stall Recovery\",\"18\":\"Special training for First Officers\",\"16\":\"Perform Before Taxi Procedure\",\"15\":\"Landing - Two engines inoperative\",\"14\":\"Landing - One engine inoperative\",\"13\":\"Landing - Normal\",\"0\":\"After Landing Procedures - Shutdown\",\"11\":\"Landing - LVO\",\"10\":\"Engine Start Procedure (ground start)\",\"9\":\"Engine Start\",\"8\":\"Communication\",\"7\":\"CDU\\/EFB Preflight Procedure\",\"6\":\"Before Start Procedures\",\"5\":\"Approach - Circling\",\"4\":\"Approach - 3D (RNP), With AP, To LPV minima\",\"3\":\"Approach - 3D (ILS), Manually, With FD\",\"2\":\"Aircraft Procedures\",\"12\":\"Landing - LVO, Min authorized RVR \\/ Crosswind\"},\"client_fullName\":{\"17\":4,\"22\":3,\"23\":2,\"1\":1,\"21\":1,\"20\":1,\"19\":1,\"18\":1,\"16\":1,\"15\":1,\"14\":1,\"13\":1,\"0\":1,\"11\":1,\"10\":1,\"9\":1,\"8\":1,\"7\":1,\"6\":1,\"5\":1,\"4\":1,\"3\":1,\"2\":1,\"12\":1}}",
+                "challenging_maneuvers_telemetry": "{\"Maneuver\":{\"2\":\"Take-off - Normal\",\"0\":\"Landing - Normal\",\"1\":\"Rejected Take-off\"},\"client_fullName\":{\"2\":3,\"0\":1,\"1\":1}}"
             }
         }
     ],
     "instructors": [
         {
-            "training_cycle": "Jul 01, 2022 → Dec 31, 2022",
-            "training_program": "Initial Training",
+            "course_name": "Course2",
+            "training_program": "Initial",
+            "platform": "737MAX",
+            "training_center": "CAE New Delhi",
+            "content": {
+                "pilots_failed_sessions": 3,
+                "exceedance_per_instructor": [
+                    {
+                        "instructor": "Noah Rottman",
+                        "maneuver": "Take-off - Normal",
+                        "exceedance": 1
+                    },
+                    {
+                        "instructor": "Taly Tanya Neiman",
+                        "maneuver": "Approach - 3D (RNP), With AP, To LPV minima",
+                        "exceedance": 0
+                    },
+                    {
+                        "instructor": "Mamadou Daye Diallo",
+                        "maneuver": "Rejected Take-off",
+                        "exceedance": 0
+                    }
+                ],
+                "most_in_session_repeats": [
+                    {
+                        "instructor": "Noah Rottman",
+                        "maneuver": "UnitName Test #1",
+                        "repeats": 5
+                    },
+                    {
+                        "instructor": "Noah Rottman",
+                        "maneuver": "UnitName Test #0",
+                        "repeats": 2
+                    },
+                    {
+                        "instructor": "Taly Tanya Neiman",
+                        "maneuver": "UnitName Test #0",
+                        "repeats": 1
+                    },
+                    {
+                        "instructor": "Taly Tanya Neiman",
+                        "maneuver": "UnitName Test #1",
+                        "repeats": 1
+                    }
+                ],
+                "repeats_per_instructor": [],
+                "maneuver_wo_exceedance_w_fail": [
+                    {
+                        "maneuver": "Rejected Take-off",
+                        "counts": 1
+                    }
+                ],
+                "maneuver_w_exceedance_wo_fail": []
+            }
+        },
+        {
+            "course_name": "Course1",
+            "training_program": "Initial",
             "platform": "737MAX",
             "training_center": "CAE New Delhi",
             "content": {
@@ -717,38 +1303,28 @@
                 "exceedance_per_instructor": [
                     {
                         "instructor": "Mamadou Daye Diallo",
-                        "maneuver": "Take-off - Normal",
-                        "exceedance": 4
-                    },
-                    {
-                        "instructor": "Taly Tanya Neiman",
-                        "maneuver": "Approach - 3D (RNP), With AP, To LPV minima",
-                        "exceedance": 2
-                    },
-                    {
-                        "instructor": "Noah Rottman",
-                        "maneuver": "Rejected Take-off",
-                        "exceedance": 2
+                        "maneuver": "Landing - Two engines inoperative",
+                        "exceedance": 3
                     },
                     {
                         "instructor": "Mamadou Daye Diallo",
                         "maneuver": "Landing - Normal",
-                        "exceedance": 0
+                        "exceedance": 2
                     },
                     {
-                        "instructor": "Mamadou Daye Diallo",
-                        "maneuver": "Landing - Two engines inoperative",
-                        "exceedance": 0
-                    },
-                    {
-                        "instructor": "Mamadou Daye Diallo",
+                        "instructor": "Noah Rottman",
                         "maneuver": "Rejected Take-off",
-                        "exceedance": 0
+                        "exceedance": 2
                     },
                     {
                         "instructor": "Noah Rottman",
                         "maneuver": "Take-off - Normal",
-                        "exceedance": 0
+                        "exceedance": 2
+                    },
+                    {
+                        "instructor": "Mamadou Daye Diallo",
+                        "maneuver": "Take-off - Normal",
+                        "exceedance": 1
                     }
                 ],
                 "most_in_session_repeats": [
@@ -758,38 +1334,60 @@
                         "repeats": 3
                     },
                     {
+                        "instructor": "Noah Rottman",
+                        "maneuver": "UnitName Test #1",
+                        "repeats": 3
+                    },
+                    {
                         "instructor": "Taly Tanya Neiman",
                         "maneuver": "UnitName Test #0",
+                        "repeats": 1
+                    },
+                    {
+                        "instructor": "Taly Tanya Neiman",
+                        "maneuver": "UnitName Test #1",
                         "repeats": 1
                     }
                 ],
                 "repeats_per_instructor": [],
-                "maneuver_wo_exceedance_w_fail": [
-                    {
-                        "maneuver": "Take-off - Normal",
-                        "counts": 2
-                    },
-                    {
-                        "maneuver": "Landing - Normal",
-                        "counts": 1
-                    },
-                    {
-                        "maneuver": "Rejected Take-off",
-                        "counts": 1
-                    }
-                ],
+                "maneuver_wo_exceedance_w_fail": [],
                 "maneuver_w_exceedance_wo_fail": [
                     {
                         "maneuver": "Rejected Take-off",
+                        "counts": 1
+                    },
+                    {
+                        "maneuver": "Take-off - Normal",
                         "counts": 1
                     }
                 ]
             }
         }
     ],
+    "latest_egrading": 1658956176,
+    "latest_scorecard": 1658420246,
+    "egrading_scorecard_link": {
+        "total_tasks": 299,
+        "total_scorecards": 12,
+        "percent_tasks_linked": 4.01,
+        "scorecard_id_list": [
+            "9ea9b11a-fdf5-11ec-8cae-3a92e8e72001",
+            "95ade1c3cd1543b395deb586ceb0ecb3",
+            "ea341518f8614160bea1693bdf9f2c05",
+            "81561166e63c444c80db5fd2f3d9d670",
+            "fef3a81115044890822a149f3efad1e7",
+            "98bd2450-0910-11ed-a91b-7a0ce0823360",
+            "8dcebe7a52cb4c2cbd49c9f0b163ef2f",
+            "ef0bc12b471544639fe0ab38530a6229",
+            "8bbc7dc7afce4e6abfe40658ab8275ee",
+            "21ee9f16c6384add946661af395d72ab",
+            "b11a7ab1520f45eb90d3952b5f262696",
+            "ec9a940eb3064800a1497ae69087c272"
+        ]
+    },
     "_rid": "0toDAPaHjT4LAAAAAAAAAA==",
     "_self": "dbs/0toDAA==/colls/0toDAPaHjT4=/docs/0toDAPaHjT4LAAAAAAAAAA==/",
-    "_etag": "\"56005bc4-0000-0a00-0000-638615890000\"",
+    "_etag": "\"6d00cc78-0000-0a00-0000-63cf07e80000\"",
     "_attachments": "attachments/",
-    "_ts": 1669731721
+    "_ts": 1674512360
 }

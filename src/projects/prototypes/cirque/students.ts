@@ -1,5 +1,3 @@
-import { component } from '$components/chart';
-
 import { getData } from './utils/functions';
 
 const platform = document.querySelector('[cirque="platform"]') as HTMLElement;
@@ -8,8 +6,8 @@ const tabName = document.querySelector('[cirque="tab-name"]') as HTMLElement;
 
 const studentNumber = document.querySelector('[cirque="student-number"]') as HTMLElement;
 
-async function main() {
-  const allData = await getData();
+function main() {
+  const allData = getData();
   const data = allData.students;
 
   if (studentNumber != null)
@@ -43,9 +41,7 @@ async function main() {
   );
 }
 
-main().catch((error) => {
-  console.error(error);
-});
+main();
 
 const emptyDiv = document.querySelector('[cirque="empty"]') as HTMLElement;
 emptyDiv.remove();
@@ -57,6 +53,8 @@ function addEmpty(list: Element) {
 
 function populateStudents(mode: string, data: any, clientData: any, gradeData: any) {
   const chart = document.querySelector('[cirque="' + mode + '"]') as HTMLElement;
+
+  console.log(data);
 
   const client = Object.entries(clientData);
   const grade = Object.entries(gradeData);

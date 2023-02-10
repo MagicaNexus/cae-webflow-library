@@ -44,6 +44,7 @@
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
     "cross-env": "^7.0.3",
+    "dotenv": "^16.0.3",
     "esbuild": "^0.15.10",
     "eslint": "^8.25.0",
     "eslint-config-prettier": "^8.5.0",
@@ -57,8 +58,10 @@
     "chart.js": "^4.0.1",
     "cors": "^2.8.5",
     "darkmode-js": "^1.5.7",
-    "dotenv": "^16.0.3",
+    "fs": "0.0.1-security",
     "gsap": "^3.11.3",
+    "os": "^0.1.2",
+    "path": "^0.12.7",
     "tippy.js": "^6.3.7"
   }
 }
