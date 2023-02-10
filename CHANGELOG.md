@@ -1,5 +1,11 @@
 # @cae-cobalt/cae-webflow-library
 
+## 1.6.3
+
+### Patch Changes
+
+- f4c6ff0: Cirque patch
+
 ## 1.6.2
 
 ### Patch Changes
