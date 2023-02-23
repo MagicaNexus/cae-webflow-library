@@ -13,9 +13,9 @@ async function main() {
   if (tabName != null) tabName.innerHTML = data[0].training_center;
 
   populateBehaviour([
-    data[0].content.top_developmental_ob,
-    data[0].content.top_positive_ob,
-    data[0].content.ob_by_session,
+    ['negative', data[0].content.top_developmental_ob],
+    ['positive', data[0].content.top_positive_ob],
+    ['comments', data[0].content.ob_by_session],
   ]);
   populateSessions('repeat', data[0].content.top_repeated_objectives);
   populateSessions('skipped', data[0].content.top_skipped_objectives);
@@ -24,7 +24,7 @@ async function main() {
   populateStudents('problems', data[0].content.problematic_objectives_students_involved);
   populateStudents('exceedances', data[0].content.highest_rate_of_exceedances);
 
-  getRepeatedObjectives(data);
+  getRepeatedObjectives(data[0].content.repeated_objectives_per_session);
 }
 
 main().catch((error) => {
@@ -173,14 +173,24 @@ function populateBehaviour(data: any) {
 
   behaviors.forEach((list, index) => {
     const item = list.querySelector('[cirque="item"]') as HTMLElement;
+    const mode = data[index][0];
+    const allData = data[index][1];
+    const viewAll = document.querySelector('[co-trigger="' + mode + '"]') as HTMLElement;
+
+    // if (allData.length < 3) {
+    //   viewAll.remove();
+    // } else {
+    //   if (viewAll != null) viewAll.innerHTML = 'View All (' + allData.length + ')';
+    // }
+
     item.remove();
 
-    if (data[index].length === 0) {
+    if (allData.length === 0) {
       addEmpty(list);
       return;
     }
 
-    data[index].forEach((data: any, index: number) => {
+    allData.forEach((data: any, index: number) => {
       if (index <= 2) {
         const newItem = item.cloneNode(true) as HTMLElement;
         if (newItem !== undefined) {
@@ -195,18 +205,42 @@ function populateBehaviour(data: any) {
         list.appendChild(newItem);
       }
     });
+    setGraph(mode, allData);
   });
+}
+
+function setGraph(mode: string, data: any) {
+  const element = document.querySelector('[cirque="' + mode + '"]') as HTMLElement;
+  const list = element.querySelector('[cirque="list"]') as HTMLElement;
+  const item = list.querySelector('[cirque="item"]') as HTMLElement;
+
+  item.remove();
+  if (data.length > 0) {
+    data.forEach((data: any) => {
+      const newItem = item.cloneNode(true) as HTMLElement;
+      if (newItem !== undefined) {
+        const session = newItem.querySelector('[cirque="session"]') as HTMLElement;
+        if (session != null) session.innerHTML = data.ob;
+        const percent = newItem.querySelector('[cirque="percent"]') as HTMLElement;
+        if (percent != null) percent.innerHTML = data.percent.toFixed(2).toString();
+        const comment = newItem.querySelector('[cirque="comment"]') as HTMLElement;
+        if (comment != null) comment.innerHTML = data.behaviour.toString();
+        const cursor = newItem.querySelector('[cirque="cursor"]') as HTMLElement;
+        if (cursor != null) cursor.style.width = data.percent.toFixed(2).toString() + '%';
+      }
+      list.appendChild(newItem);
+    });
+  } else addEmpty(list);
 }
 
 function getRepeatedObjectives(data: any) {
   const element = document.querySelector('[cirque="repeated"]') as HTMLElement;
   const list = element.querySelector('[cirque="list"]') as HTMLElement;
   const item = list.querySelector('[cirque="item"]') as HTMLElement;
-  const allData = data[0].content.repeated_objectives_per_session;
 
   item.remove();
-  if (allData.length > 0) {
-    allData.forEach((data: any) => {
+  if (data.length > 0) {
+    data.forEach((data: any) => {
       const newItem = item.cloneNode(true) as HTMLElement;
       if (newItem !== undefined) {
         const session = newItem.querySelector('[cirque="session"]') as HTMLElement;

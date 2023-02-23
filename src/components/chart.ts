@@ -88,14 +88,14 @@ const component = (function () {
               drawTicks: false,
               grid: {
                 display: true,
-                color: getAxis(component) === 'x' ? '#fff' : colors.neutral.neutral09,
+                color: getXGridColor(component),
               },
             },
             y: {
               beginAtZero: false,
               offset: true,
               grid: {
-                color: getAxis(component) === 'x' ? colors.neutral.neutral02 : '#fff',
+                color: getYGridColor(component),
                 display: true,
               },
               ticks: {
@@ -126,6 +126,30 @@ const component = (function () {
         };
 
         createChart(canvas, datasets, labels, options, 'bar');
+      }
+
+      function getXGridColor(component: HTMLElement): string {
+        const { body } = document;
+        const theme = body.hasAttribute('theme') ? body.getAttribute('theme') : 'light';
+        const axis = getAxis(component);
+        const isXAxis = axis === 'x';
+
+        if (theme === 'dark') {
+          return isXAxis ? '#1d2225' : colors.neutral.neutral02;
+        }
+        return isXAxis ? 'fff' : colors.neutral.neutral09;
+      }
+
+      function getYGridColor(component: HTMLElement): string {
+        const { body } = document;
+        const theme = body.hasAttribute('theme') ? body.getAttribute('theme') : 'light';
+        const axis = getAxis(component);
+        const isXAxis = axis === 'x';
+
+        if (theme === 'dark') {
+          return isXAxis ? colors.neutral.neutral02 : colors.neutral.neutral00;
+        }
+        return isXAxis ? colors.neutral.neutral02 : 'fff';
       }
 
       function createDoughnutChart(component: HTMLElement) {
