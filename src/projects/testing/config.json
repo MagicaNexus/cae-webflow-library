@@ -1,0 +1,40 @@
+{
+  "options": {
+    "role": {
+      "name": "Role",
+      "values": [
+        { "name": "pilot", "disabled": false },
+        { "name": "fleet planner", "disabled": true },
+        { "name": "instructor", "disabled": false },
+        { "name": "account exec", "disabled": false }
+      ],
+      "default": "pilot"
+    },
+    "genre": {
+      "name": "Genre",
+      "values": [
+        { "name": "male", "disabled": false },
+        { "name": "female", "disabled": false }
+      ],
+      "default": "male"
+    },
+    "experience": {
+      "name": "Experience",
+      "values": [
+        { "name": "junior", "disabled": false },
+        { "name": "mid-level", "disabled": false },
+        { "name": "senior", "disabled": false }
+      ],
+      "default": "junior"
+    },
+    "layout": {
+      "name": "Layout",
+      "values": [
+        { "name": "A", "disabled": false },
+        { "name": "B", "disabled": false }
+      ],
+      "default": "A"
+    }
+  },
+  "imageBaseURL": "https://www.matthieurode.com/cae/assets/personas/repository"
+}

@@ -36,10 +36,10 @@
   "devDependencies": {
     "@changesets/changelog-git": "^0.1.13",
     "@changesets/cli": "^2.25.0",
-    "@finsweet/eslint-config": "^1.1.5",
+    "@finsweet/eslint-config": "^2.0.5",
     "@finsweet/tsconfig": "^1.1.0",
     "@playwright/test": "^1.27.0",
-    "@trivago/prettier-plugin-sort-imports": "^3.3.0",
+    "@trivago/prettier-plugin-sort-imports": "^4.2.1",
     "@types/jquery": "^3.5.14",
     "@typescript-eslint/eslint-plugin": "^5.39.0",
     "@typescript-eslint/parser": "^5.39.0",
@@ -50,13 +50,14 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-prettier": "^4.2.1",
     "prettier": "^2.7.1",
-    "typescript": "^4.8.4"
+    "typescript": "^5.2.2"
   },
   "dependencies": {
     "@azure/cosmos": "^3.17.2",
     "@finsweet/ts-utils": "^0.33.2",
     "chart.js": "^4.0.1",
     "cors": "^2.8.5",
+    "countup": "^1.8.2",
     "darkmode-js": "^1.5.7",
     "fs": "0.0.1-security",
     "gsap": "^3.11.3",
